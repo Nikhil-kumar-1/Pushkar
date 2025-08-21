@@ -20,6 +20,7 @@ export default function Footer() {
     "Blog",
     "Achievements",
     "Contact",
+    "Admin"
   ];
 
   const handleEmailClick = () => {
