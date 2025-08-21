@@ -6,17 +6,12 @@ const mongoose = require("mongoose");
 const app = express();
 
 // Allowed origins
-// Middleware for CORS
-app.use(cors({
-  origin: ["https://pushkar-plum.vercel.app/", "http://localhost:5173"],
-  credentials: true,
-  methods: ["GET", "POST", "PUT", "DELETE", "PATCH"]
-}));
+const allowedOrigins = [
+  "https://pushkar-plum.vercel.app",
+  "http://localhost:5173"
+];
 
-// Middleware for parsing JSON requests
-app.use(bodyParser.json());
-
-// CORS setup
+// CORS middleware
 app.use(
   cors({
     origin: function (origin, callback) {
@@ -29,9 +24,12 @@ app.use(
       }
     },
     credentials: true,
+    methods: ["GET", "POST", "PUT", "DELETE", "PATCH"],
+    allowedHeaders: ["Content-Type", "Authorization"],
   })
 );
 
+// Middleware for parsing JSON requests
 app.use(express.json());
 
 // Routes import
@@ -42,13 +40,13 @@ app.use("/api", articleRoutes);
 mongoose
   .connect(process.env.MONGO_URI)
   .then(() => {
-    console.log("Connected to MongoDB");
+    console.log("✅ Connected to MongoDB");
   })
   .catch((err) => {
-    console.error("Error connecting to MongoDB:", err);
+    console.error("❌ Error connecting to MongoDB:", err);
   });
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}`);
+  console.log(`🚀 Server is running on port ${PORT}`);
 });
