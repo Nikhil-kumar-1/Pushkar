@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { Phone } from "lucide-react";
+import { Link } from "react-router-dom";
 
 export default function Footer() {
   const services = [
@@ -14,13 +15,13 @@ export default function Footer() {
   ];
 
   const quickLinks = [
-    "Home",
-    "About",
-    "Services",
-    "Blog",
-    "Achievements",
-    "Contact",
-    "Admin"
+    { name: "Home", path: "/" },
+    { name: "About", path: "/about" },
+    { name: "Services", path: "/services" },
+    { name: "Blog", path: "/blog" },
+    { name: "Achievements", path: "/achievements" },
+    { name: "Contact", path: "/contact" },
+    { name: "Admin", path: "/admin" }
   ];
 
   const handleEmailClick = () => {
@@ -113,13 +114,12 @@ export default function Footer() {
             <ul className="space-y-2">
               {services.map((service, index) => (
                 <li key={index}>
-                  <motion.a
+                  <motion.div
                     whileHover={{ x: 5, color: "#6CCF5F" }}
-                    href="#services"
-                    className="text-gray-300 hover:text-[#6CCF5F] transition"
+                    className="text-gray-300 hover:text-[#6CCF5F] transition cursor-pointer"
                   >
                     {service}
-                  </motion.a>
+                  </motion.div>
                 </li>
               ))}
             </ul>
@@ -137,13 +137,16 @@ export default function Footer() {
             <ul className="space-y-2">
               {quickLinks.map((link, index) => (
                 <li key={index}>
-                  <motion.a
+                  <motion.div
                     whileHover={{ x: 5, color: "#6CCF5F" }}
-                    href={`${link.toLowerCase().replace(/\s+/g, "-")}`}
-                    className="text-gray-300 hover:text-[#6CCF5F] transition"
                   >
-                    {link}
-                  </motion.a>
+                    <Link
+                      to={link.path}
+                      className="text-gray-300 hover:text-[#6CCF5F] transition block"
+                    >
+                      {link.name}
+                    </Link>
+                  </motion.div>
                 </li>
               ))}
             </ul>
@@ -201,13 +204,13 @@ export default function Footer() {
                     d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
                   />
                 </svg>
-                <motion.a
+                <motion.div
                   whileHover={{ color: "#6CCF5F" }}
-                  href="tel:+9192051 11477"
-                  className="text-gray-300 hover:text-[#6CCF5F] transition"
+                  className="text-gray-300 hover:text-[#6CCF5F] transition cursor-pointer"
+                  onClick={handlePhoneClick}
                 >
                   +91 92051 11477
-                </motion.a>
+                </motion.div>
               </div>
 
               <div className="flex items-center space-x-3">
@@ -225,13 +228,13 @@ export default function Footer() {
                     d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
                   />
                 </svg>
-                <motion.a
+                <motion.div
                   whileHover={{ color: "#6CCF5F" }}
-                  href="mailto:drpushkaranandsingh@gmail.com."
-                  className="text-gray-300 hover:text-[#6CCF5F] transition"
+                  className="text-gray-300 hover:text-[#6CCF5F] transition cursor-pointer"
+                  onClick={handleEmailClick}
                 >
                   drpushkaranandsingh@gmail.com.
-                </motion.a>
+                </motion.div>
               </div>
 
               <div className="flex items-center space-x-3">
