@@ -106,14 +106,7 @@ export default function About() {
               >
                 View Full Profile
               </motion.button>
-              <motion.button
-                onClick={() => navigate("/contact")}
-                whileHover={{ scale: 1.03 }}
-                whileTap={{ scale: 0.97 }}
-                className="border-2 cursor-pointer border-[#1A1F1C] text-[#1A1F1C] px-6 py-3 rounded-full hover:bg-gray-100 transition"
-              >
-                Book Consultation
-              </motion.button>
+              
             </motion.div>
           </div>
         </motion.div>
@@ -140,8 +133,8 @@ export default function About() {
             variants={item}
             className="bg-[#f9fdf9] p-6 rounded-xl shadow-sm hover:shadow-md transition"
           >
-            <div className="text-4xl text-[#6CCF5F] font-bold mb-3">50+</div>
-            <h3 className="text-xl font-semibold mb-2">Research Papers</h3>
+            <div className="text-4xl text-[#6CCF5F] font-bold mb-3">20+</div>
+            <h3 className="text-xl font-semibold mb-2">Articles Published</h3>
             <p className="text-gray-600">Published in medical journals</p>
           </motion.div>
 

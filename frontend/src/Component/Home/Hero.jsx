@@ -146,16 +146,7 @@ export default function Hero() {
                 className="w-full h-full object-cover"
               />
 
-              {/* Experience Badge */}
-              <motion.div
-                custom={1}
-                variants={floatingElements}
-                animate={isMounted ? "show" : "hidden"}
-                className="absolute bottom-6 right-4 bg-white p-3 rounded-xl shadow-lg w-36"
-              >
-                <p className="text-xs text-gray-500">Experience</p>
-                <p className="text-lg font-bold text-[#1A1F1C]">14+ Years</p>
-              </motion.div>
+          
             </div>
           </div>
         </motion.div>
