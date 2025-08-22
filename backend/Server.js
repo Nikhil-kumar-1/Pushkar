@@ -34,7 +34,7 @@ app.use(express.json());
 
 // Routes import
 const articleRoutes = require("./routes/articles");
-const videoRoutes = require("./routes/Video");
+const videoRoutes = require("./routes/videos");
 
 app.use("/api", articleRoutes);
 app.use("/api/videos", videoRoutes);
