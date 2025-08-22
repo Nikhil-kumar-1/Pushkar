@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
+import { backendUrl } from "../../config/config";
 
 const AllVideos = () => {
   const [videos, setVideos] = useState([]);
@@ -22,7 +23,7 @@ const AllVideos = () => {
     const fetchVideos = async () => {
       try {
         setLoading(true);
-        const res = await fetch("http://localhost:5000/api/videos");
+        const res = await fetch(`${backendUrl}/api/videos`);
         if (!res.ok) {
           throw new Error(`HTTP error! status: ${res.status}`);
         }
