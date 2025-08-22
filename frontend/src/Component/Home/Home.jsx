@@ -11,9 +11,9 @@ const HOME = () => {
   return (
     <div>
   <HeroSection />
-  <Video />
   <About />
   <Services />
+  <Video />
   <Article />
   <GetInTouch />
      

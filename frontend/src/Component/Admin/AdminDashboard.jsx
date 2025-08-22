@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { FiMenu, FiX, FiHome, FiFileText, FiLogOut, FiSettings, FiUser, FiBarChart2 } from "react-icons/fi";
 import ArticleForm from "./ArticleForm";
+import YoutubeForm from "./YoutubForm";
 import { useNavigate } from "react-router-dom";
 
 export default function AdminDashboard() {
@@ -118,14 +119,14 @@ export default function AdminDashboard() {
             </li>
             <li
               className={`cursor-pointer p-3 rounded-lg flex items-center space-x-3 transition-all duration-200 ${
-                activePage === "analytics" 
+                activePage === "youtube" 
                   ? "bg-indigo-700 text-white shadow-lg" 
                   : "text-indigo-200 hover:bg-indigo-700 hover:text-white"
               }`}
-              onClick={() => handleMenuItemClick("analytics")}
+              onClick={() => handleMenuItemClick("youtube")}
             >
               <FiBarChart2 size={18} />
-              <span>Analytics</span>
+              <span>Youtube</span>
             </li>
             <li
               className={`cursor-pointer p-3 rounded-lg flex items-center space-x-3 transition-all duration-200 ${
@@ -211,6 +212,8 @@ export default function AdminDashboard() {
             </div>
           )}
           {activePage === "articles" && <ArticleForm />}
+           {activePage === "youtube" && <YoutubeForm />}
+          
           {activePage === "analytics" && (
             <div className="animate-fadeIn">
               <h2 className="text-2xl font-bold text-gray-800 mb-6">Analytics</h2>

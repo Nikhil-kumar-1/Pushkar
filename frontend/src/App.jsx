@@ -10,6 +10,7 @@ import ContactPage from "./Component/Contact/ContactPage";
 import AchievementPage from "./Component/Achievement/Achievement.jsx";
 import ScrollToTop from "./Component/ScrollToTop.jsx";
 import AdminDashboard from "./Component/Admin/AdminDashboard.jsx";
+import AllVideos from "./Component/AllVideos/AllVideos.jsx";
 
 const AppContent = () => {
   const location = useLocation();
@@ -28,6 +29,7 @@ const AppContent = () => {
         <Route path="/achievements" element={<AchievementPage />} />
         <Route path="/services" element={<ServicePage />} />
         <Route path="/contact" element={<ContactPage />} />
+        <Route path="/all-videos" element={<AllVideos />} />
         <Route path="/admin/*" element={<AdminDashboard />} />
       </Routes>
       {!isAdminRoute && <Footer />}
