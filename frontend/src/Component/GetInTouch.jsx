@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
-import { useState } from "react";
+import { useState, useRef } from "react";
+import emailjs from "@emailjs/browser";
 
 export default function GetInTouch() {
   const [formData, setFormData] = useState({
@@ -8,6 +9,7 @@ export default function GetInTouch() {
     phone: "",
     message: ""
   });
+  const form = useRef();
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -19,8 +21,29 @@ export default function GetInTouch() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Handle form submission
-    console.log("Form submitted:", formData);
+    
+    emailjs.sendForm(
+      "service_eqfl4xl",
+      "template_fbcjgxc",
+      form.current,
+      "smPZST4i7DGoyeYwM"
+    )
+    .then(
+      (result) => {
+        console.log(result.text);
+        alert("Message sent successfully!");
+        setFormData({
+          name: "",
+          email: "",
+          phone: "",
+          message: ""
+        });
+      },
+      (error) => {
+        console.log(error.text);
+        alert("Failed to send message. Please try again.");
+      }
+    );
   };
 
   // Animation variants
@@ -76,7 +99,7 @@ export default function GetInTouch() {
             variants={item}
             className="p-8 md:p-12"
           >
-            <form onSubmit={handleSubmit} className="space-y-6">
+            <form ref={form} onSubmit={handleSubmit} className="space-y-6">
               <div>
                 <label htmlFor="name" className="block text-gray-700 font-medium mb-2">
                   Full Name
@@ -162,14 +185,17 @@ export default function GetInTouch() {
               whileHover="hover"
               className="absolute inset-0 bg-gray-200 overflow-hidden"
             >
-              {/* Embedded Google Map - Replace with your actual embed code */}
-             
-              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3502.7739001078694!2d77.4320773!3d28.606559!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cef65e1ca4115%3A0x57cd54fcbd59af05!2sDr.%20Pushkar%20Anand%20Singh!5e0!3m2!1sen!2sin!4v1755515254126!5m2!1sen!2sin" width="100%"
+              {/* Embedded Google Map */}
+              <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3502.7739001078694!2d77.4320773!3d28.606559!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cef65e1ca4115%3A0x57cd54fcbd59af05!2sDr.%20Pushkar%20Anand%20Singh!5e0!3m2!1sen!2sin!4v1755515254126!5m2!1sen!2sin" 
+                width="100%"
                 height="100%"
                 style={{ border: 0 }}
                 allowFullScreen=""
                 loading="lazy"
-                className="absolute inset-0"></iframe>
+                className="absolute inset-0"
+                title="Clinic Location"
+              ></iframe>
 
               {/* Map Overlay Info */}
               <motion.div
@@ -181,16 +207,14 @@ export default function GetInTouch() {
               >
                 <h3 className="font-bold text-[#1A1F1C] mb-2">Our Clinic</h3>
                 <p className="text-gray-600 text-sm">
-                  123 Medical Drive, Health City<br />
-                  New Delhi, DL 110017<br />
-                  Phone: +91 98765 43210
+                  Shop No. LGA 2 & 3 Galaxy Diamond Plaza<br />
+                  Sector-4 Greater Noida West<br />
+                  Phone: +91 92051 11477
                 </p>
               </motion.div>
             </motion.div>
           </motion.div>
         </motion.div>
-
-        
       </div>
     </section>
   );

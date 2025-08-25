@@ -1,20 +1,27 @@
 import { Helmet } from "react-helmet";
 import { motion } from "framer-motion";
 import { Phone, Mail, MapPin, Clock, Calendar } from "lucide-react";
+import { useRef } from "react";
+import { useState } from "react";
+import emailjs from "@emailjs/browser";
+import { useNavigate } from "react-router-dom";
 
 const ContactPage = () => {
+  
+  const navigate = useNavigate();
+
   const contactMethods = [
     {
       icon: <Phone className="w-6 h-6 text-[#6CCF5F]" />,
       title: "Phone",
       description: "+91 92051 11477",
-      link: "tel:+9192051 11477",
+      link: "tel:+919205111477",
     },
     {
       icon: <Mail className="w-6 h-6 text-[#6CCF5F]" />,
       title: "Email",
       description: "drpushkaranandsingh@gmail.com",
-      link: "mailto:drpushkaranandsingh@gmail.com.",
+      link: "mailto:drpushkaranandsingh@gmail.com",
     },
     {
       icon: <MapPin className="w-6 h-6 text-[#6CCF5F]" />,
@@ -33,6 +40,49 @@ const ContactPage = () => {
       description: "Available on prior booking",
     },
   ];
+
+   const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    message: ""
+  });
+  const form = useRef();
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    
+    emailjs.sendForm(
+      "service_eqfl4xl",
+      "template_fbcjgxc",
+      form.current,
+      "smPZST4i7DGoyeYwM"
+    )
+    .then(
+      (result) => {
+        console.log(result.text);
+        alert("Message sent successfully!");
+        setFormData({
+          name: "",
+          email: "",
+          phone: "",
+          message: ""
+        });
+      },
+      (error) => {
+        console.log(error.text);
+        alert("Failed to send message. Please try again.");
+      }
+    );
+  };
 
   return (
     <>
@@ -68,15 +118,17 @@ const ContactPage = () => {
               about our services
             </p>
 
-              <div className="flex flex-wrap justify-center gap-4 mt-10">
-              <motion.button onClick={() => navigate('/contact')}
+            <div className="flex flex-wrap justify-center gap-4 mt-10">
+              <motion.button
+                onClick={() => navigate("/contact")}
                 whileHover={{ scale: 1.05, boxShadow: "0 5px 15px rgba(108, 207, 95, 0.5)" }}
                 whileTap={{ scale: 0.95 }}
                 className="bg-[#6CCF5F] cursor-pointer text-white px-5 py-2 rounded-full text-lg font-semibold"
               >
                 Book Consultation
               </motion.button>
-              <motion.button onClick={() => navigate('/services')}
+              <motion.button
+                onClick={() => navigate("/services")}
                 whileHover={{ scale: 1.05, backgroundColor: "rgba(255,255,255,0.2)" }}
                 whileTap={{ scale: 0.95 }}
                 className="border-2 cursor-pointer border-white text-white px-5 py-2 rounded-full text-lg font-semibold"
@@ -148,7 +200,7 @@ const ContactPage = () => {
                 <div className="flex items-center gap-2">
                   <Phone className="w-5 h-5 text-[#FFA500]" />
                   <a
-                    href="tel:+9192051 11477"
+                    href="tel:+919205111477"
                     className="text-lg font-semibold text-[#1A1F1C] hover:text-[#6CCF5F] transition"
                   >
                     +91 92051 11477
@@ -168,7 +220,7 @@ const ContactPage = () => {
                 Send Us a <span className="text-[#6CCF5F]">Message</span>
               </h2>
 
-              <form className="space-y-6">
+              <form ref={form} onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid md:grid-cols-2 gap-6">
                   <div>
                     <label htmlFor="name" className="block text-gray-700 mb-2">
@@ -177,8 +229,12 @@ const ContactPage = () => {
                     <input
                       type="text"
                       id="name"
+                      name="name"
+                      value={formData.name}
+                  onChange={handleChange}
                       className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#6CCF5F] focus:border-transparent"
                       placeholder="Your name"
+                      required
                     />
                   </div>
                   <div>
@@ -188,8 +244,12 @@ const ContactPage = () => {
                     <input
                       type="tel"
                       id="phone"
+                      name="phone"
+                      value={formData.phone}
+                  onChange={handleChange}
                       className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#6CCF5F] focus:border-transparent"
                       placeholder="Your phone number"
+                      required
                     />
                   </div>
                 </div>
@@ -200,25 +260,17 @@ const ContactPage = () => {
                   <input
                     type="email"
                     id="email"
+                    name="email"
+                    value={formData.email}
+                  onChange={handleChange}
                     className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#6CCF5F] focus:border-transparent"
                     placeholder="Your email address"
+                    required
                   />
                 </div>
                 <div>
-                  <label htmlFor="service" className="block text-gray-700 mb-2">
-                    Service Interested In
-                  </label>
-                  <select
-                    id="service"
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#6CCF5F] focus:border-transparent"
-                  >
-                    <option value="">Select a service</option>
-                    <option value="laparoscopic">Laparoscopic Surgery</option>
-                    <option value="laser">Laser Surgery</option>
-                    <option value="hernia">Hernia Repair</option>
-                    <option value="gallbladder">Gallbladder Surgery</option>
-                    <option value="piles">Piles Treatment</option>
-                  </select>
+                  
+                  
                 </div>
                 <div>
                   <label htmlFor="message" className="block text-gray-700 mb-2">
@@ -226,9 +278,13 @@ const ContactPage = () => {
                   </label>
                   <textarea
                     id="message"
+                    name="message"
+                    value={formData.message}
+                  onChange={handleChange}
                     rows="4"
                     className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#6CCF5F] focus:border-transparent"
                     placeholder="Type your message here..."
+                    required
                   ></textarea>
                 </div>
                 <motion.button
@@ -291,7 +347,8 @@ const ContactPage = () => {
               Anand Singh
             </p>
             <div className="flex flex-wrap justify-center gap-4">
-              <motion.button onClick={() => navigate('/contact')}
+              <motion.button
+                onClick={() => navigate("/contact")}
                 whileHover={{ scale: 1.03 }}
                 whileTap={{ scale: 0.97 }}
                 className="bg-[#6CCF5F] cursor-pointer text-white px-8 py-3 rounded-full font-semibold shadow-md hover:bg-[#5bbd4f] transition"
@@ -301,7 +358,7 @@ const ContactPage = () => {
               <motion.button
                 whileHover={{ scale: 1.03 }}
                 whileTap={{ scale: 0.97 }}
-                onClick={() => window.location.href = "tel:+919876543210"}
+                onClick={() => (window.location.href = "tel:+919205111477")}
                 className="border-2 cursor-pointer border-[#1A1F1C] text-[#1A1F1C] px-8 py-3 rounded-full font-semibold hover:bg-gray-100 transition"
               >
                 Call: +91 92051 11477

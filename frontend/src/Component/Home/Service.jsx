@@ -1,47 +1,54 @@
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
-
+import Laparoscopic from "../../assets/Laparoscopic.webp";
+import LaparoscopicAppenndict  from "../../assets/LaparoscopicAppendicits.webp";
+import LaparoscopicSurgery  from "../../assets/LaparoscopicSurgery.webp";
+import LaparoscopicHernia  from "../../assets/LaparoscopicHernia.webp";
+import LaserCyst from "../../assets/LaserCyst.webp";
+import LaserPiles from "../../assets/LaserPiles.webp";
+import LaserTumor from "../../assets/LaserTumor.webp";
+import LaserCircumcision from "../../assets/LaserCircumcision.webp";
 const services = [
   {
     title: "Laparoscopic Surgery for Fibroid/Pelvic Tumour/Cyst",
     description: "Minimally invasive removal of uterine fibroids, ovarian cysts, and pelvic tumors with faster recovery and minimal scarring.",
-    image: "https://images.unsplash.com/photo-1579684385127-1ef15d508118?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8bGFwYXJvc2NvcGljJTIwc3VyZ2VyeXxlbnwwfHwwfHx8MA%3D%3D"
+    image: Laparoscopic
   },
   {
     title: "Laparoscopic Surgery for Appendicitis",
     description: "Advanced keyhole appendectomy procedure with reduced pain and quicker return to normal activities.",
-    image: "https://images.unsplash.com/photo-1581595219315-a187dd40c322?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8YXBwZW5kaWNpdGlzfGVufDB8fDB8fHww"
+    image: LaparoscopicAppenndict
   },
   {
     title: "Laparoscopic Surgery for Gall Bladder Stone",
     description: "Safe and effective removal of gallstones through tiny incisions with minimal hospital stay.",
-    image: "https://images.unsplash.com/photo-1631815588090-d4bfec5b1ccb?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8Z2FsbGJsYWRkZXJ8ZW58MHx8MHx8fDA%3D"
+    image: LaparoscopicSurgery
   },
   {
     title: "Laparoscopic Surgery for Hernia",
     description: "Innovative mesh repair techniques for various hernias with lower recurrence rates.",
-    image: "https://images.unsplash.com/photo-1631815588090-d4bfec5b1ccb?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8aGVybmlhfGVufDB8fDB8fHww"
+    image: LaparoscopicHernia
   },
   {
     title: "Laser Surgery for Small Tumour/Cyst/Lipoma",
     description: "Precision laser removal of benign growths with minimal bleeding and excellent cosmetic results.",
-    image: "https://images.unsplash.com/photo-1631815588090-d4bfec5b1ccb?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8bGFzZXIlMjBzdXJnZXJ5fGVufDB8fDB8fHww"
+    image: LaserCyst
   },
   {
     title: "Laser Surgery for Piles/Fistula/Fissure",
     description: "Painless treatment for hemorrhoids, anal fistulas, and fissures with quick healing time.",
-    image: "https://images.unsplash.com/photo-1631815588090-d4bfec5b1ccb?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8cGlsZXN8ZW58MHx8MHx8fDA%3D"
+    image: LaserPiles
   },
   {
     title: "Laser Surgery for Pilonidal Sinus",
     description: "Advanced laser treatment for pilonidal sinus with minimal discomfort and faster recovery.",
-    image: "https://images.unsplash.com/photo-1631815588090-d4bfec5b1ccb?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8c2ludXN8ZW58MHx8MHx8fDA%3D"
+    image: LaserTumor
   },
   {
     title: "Laser Surgery for Circumcision",
     description: "Bloodless circumcision procedure with precision laser technique and reduced healing time.",
-    image: "https://images.unsplash.com/photo-1631815588090-d4bfec5b1ccb?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8Y2lyY3VtY2lzaW9ufGVufDB8fDB8fHww"
-  }
+    image: LaserCircumcision
+  },
 ];
 
 export default function Services() {

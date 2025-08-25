@@ -1,6 +1,14 @@
 import { Helmet } from 'react-helmet';
 import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
+import Laparoscopic from "../../assets/Laparoscopic.webp";
+import LaparoscopicAppenndict  from "../../assets/LaparoscopicAppendicits.webp";
+import LaparoscopicSurgery  from "../../assets/LaparoscopicSurgery.webp";
+import LaparoscopicHernia  from "../../assets/LaparoscopicHernia.webp";
+import LaserCyst from "../../assets/LaserCyst.webp";
+import LaserPiles from "../../assets/LaserPiles.webp";
+import LaserTumor from "../../assets/LaserTumor.webp";
+import LaserCircumcision from "../../assets/LaserCircumcision.webp";
 const ServicePage = () => {
 
   const navigate = useNavigate();
@@ -8,7 +16,7 @@ const ServicePage = () => {
     {
       title: "Laparoscopic Surgery for Gall Bladder Stone",
       description: "Minimally invasive removal of gallstones through small abdominal incisions using advanced laparoscopic techniques. This procedure offers reduced pain, minimal scarring, and faster recovery compared to traditional open surgery.",
-      image: "https://images.unsplash.com/photo-1631815588090-d4bfec5b1ccb?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8Z2FsbGJsYWRkZXJ8ZW58MHx8MHx8fDA%3D",
+      image: Laparoscopic,
       benefits: [
         "98% success rate",
         "1-2 day hospital stay",
@@ -19,7 +27,7 @@ const ServicePage = () => {
     {
       title: "Laparoscopic Surgery for Hernia",
       description: "Advanced repair of inguinal, umbilical, and ventral hernias using mesh reinforcement through tiny incisions. Our technique reduces recurrence rates to less than 1% with minimal postoperative discomfort.",
-      image: "https://images.unsplash.com/photo-1581595219315-a187dd40c322?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8aGVybmlhfGVufDB8fDB8fHww",
+      image: LaparoscopicHernia,
       benefits: [
         "Day care procedure",
         "95% reduced recurrence risk",
@@ -30,7 +38,7 @@ const ServicePage = () => {
     {
       title: "Laparoscopic Surgery for Appendicitis",
       description: "Emergency removal of inflamed appendix through keyhole surgery, preventing rupture and life-threatening complications. Our same-day discharge protocol gets you home faster.",
-      image: "https://images.unsplash.com/photo-1579684385127-1ef15d508118?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8bGFwYXJvc2NvcGljJTIwc3VyZ2VyeXxlbnwwfHwwfHx8MA%3D%3D",
+      image: LaparoscopicAppenndict,
       benefits: [
         "30-45 minute procedure",
         "Discharge within 24 hours",
@@ -41,7 +49,7 @@ const ServicePage = () => {
     {
       title: "Laparoscopic Surgery for Pelvic Tumour/Cyst",
       description: "Precision removal of ovarian cysts and pelvic masses with fertility-preserving techniques. Our gynecologic laparoscopy specialists ensure optimal outcomes with minimal tissue damage.",
-      image: "https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8b3ZhcmlhbiUyMGN5c3R8ZW58MHx8MHx8fDA%3D",
+      image: LaserTumor,
       benefits: [
         "Fertility preservation",
         "2mm hidden incisions",
@@ -52,7 +60,7 @@ const ServicePage = () => {
     {
       title: "Laparoscopic Surgery for Fibroid",
       description: "Uterus-preserving myomectomy for symptomatic fibroids causing heavy bleeding or infertility. Our bloodless surgical technique eliminates fibroids while protecting healthy tissue.",
-      image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1e?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8dXRlcmluZSUyMGZpYnJvaWR8ZW58MHx8MHx8fDA%3D",
+      image: LaparoscopicSurgery,
       benefits: [
         "Uterus preservation",
         "Normal menstrual recovery",
@@ -63,7 +71,7 @@ const ServicePage = () => {
     {
       title: "Laser Surgery for Piles",
       description: "Painless, bloodless hemorrhoid treatment using advanced laser technology. Our 15-minute procedure eliminates piles permanently with zero hospital stay.",
-      image: "https://images.unsplash.com/photo-1631815588090-d4bfec5b1ccb?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8aGVtb3JyaG9pZHN8ZW58MHx8MHx8fDA%3D",
+      image: LaserPiles,
       benefits: [
         "No stitches or cuts",
         "Walk-in walk-out procedure",
@@ -74,7 +82,7 @@ const ServicePage = () => {
     {
       title: "Laser Surgery for Fistula",
       description: "Precision fistula closure using laser energy that seals the tract while preserving sphincter muscles. Our technique has 98% success rate with no incontinence risk.",
-      image: "https://images.unsplash.com/photo-1631815588090-d4bfec5b1ccb?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8ZmlzdHVsYXxlbnwwfHwwfHx8MA%3D%3D",
+      image: LaserCyst,
       benefits: [
         "No cutting of muscles",
         "Single session treatment",
@@ -85,7 +93,7 @@ const ServicePage = () => {
     {
       title: "Laser Surgery for Fissure",
       description: "Pain relief and healing of chronic anal fissures with laser treatment that avoids muscle cutting. Our patients report immediate pain relief and complete healing in 7 days.",
-      image: "https://images.unsplash.com/photo-1631815588090-d4bfec5b1ccb?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8Zmlzc3VyZXxlbnwwfHwwfHx8MA%3D%3D",
+      image: LaserPiles,
       benefits: [
         "No sphincter damage",
         "Bloodless procedure",
@@ -96,7 +104,7 @@ const ServicePage = () => {
     {
       title: "Laser Surgery for Pilonidal Sinus",
       description: "Minimally invasive laser treatment for pilonidal disease that eliminates sinus tracts permanently. Our technique has 95% success rate with no wound care needed.",
-      image: "https://images.unsplash.com/photo-1631815588090-d4bfec5b1ccb?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8cGlsb25pZGFsJTIwc2ludXN8ZW58MHx8MHx8fDA%3D",
+      image: LaserTumor,
       benefits: [
         "No open wound",
         "Single sitting procedure",
@@ -107,7 +115,7 @@ const ServicePage = () => {
     {
       title: "Laser Surgery for Circumcision",
       description: "Bloodless, stitchless circumcision using laser technology for adults and children. Our painless technique takes just 20 minutes with immediate return to normal activities.",
-      image: "https://images.unsplash.com/photo-1631815588090-d4bfec5b1ccb?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8Y2lyY3VtY2lzaW9ufGVufDB8fDB8fHww",
+      image: LaserCircumcision,
       benefits: [
         "No bleeding",
         "No stitches to remove",
@@ -118,7 +126,7 @@ const ServicePage = () => {
     {
       title: "Laser Surgery for Cyst",
       description: "Non-invasive removal of sebaceous, ganglion, and other cysts using laser ablation. Our scarless technique prevents recurrence while preserving surrounding tissue.",
-      image: "https://images.unsplash.com/photo-1631815588090-d4bfec5b1ccb?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8Y3lzdHN8ZW58MHx8MHx8fDA%3D",
+      image: LaserCyst,
       benefits: [
         "No surgical scars",
         "5-minute procedure",
@@ -129,7 +137,7 @@ const ServicePage = () => {
     {
       title: "Laser Surgery for Small Tumour",
       description: "Precision removal of benign skin tumors like lipomas without incisions or stitches. Our laser excision leaves no visible marks with complete tumor clearance.",
-      image: "https://images.unsplash.com/photo-1631815588090-d4bfec5b1ccb?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8dHVtb3VyfGVufDB8fDB8fHww",
+      image: LaserTumor,
       benefits: [
         "No knife used",
         "Margin-free excision",
