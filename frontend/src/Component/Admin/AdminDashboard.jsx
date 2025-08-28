@@ -51,6 +51,13 @@ export default function AdminDashboard() {
     }
   };
 
+  //Handle logout
+  
+   const handleLogout = () => {
+    localStorage.removeItem("token"); // Remove the token from localStorage
+    navigate("/login"); // Redirect to the login page
+  };
+
   return (
     <div className="flex h-screen bg-gradient-to-br from-gray-50 to-gray-100 overflow-hidden">
       {/* Mobile overlay */}
@@ -154,10 +161,15 @@ export default function AdminDashboard() {
         </div>
         
         <div className="p-4 border-t border-indigo-700">
-          <button className="w-full flex items-center space-x-3 text-indigo-200 hover:text-white p-3 rounded-lg transition-colors duration-200">
-            <FiLogOut size={18} />
-            <span>Logout</span>
-          </button>
+         <button
+                onClick={handleLogout}
+                className="cursor-pointer w-full flex items-center space-x-3 text-indigo-200 hover:text-white p-3 rounded-lg transition-colors duration-200"
+              >
+                <FiLogOut size={18} />
+                <span>Logout</span>
+              </button>
+
+         
         </div>
       </div>
 

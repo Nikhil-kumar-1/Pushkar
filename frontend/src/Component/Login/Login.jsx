@@ -12,6 +12,7 @@ const Login = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setError(""); // error reset
 
     try {
       const response = await axios.post(`${backendUrl}/api/auth/login`, {
@@ -19,8 +20,16 @@ const Login = () => {
         password,
       });
 
-      localStorage.setItem("token", response.data.token);
-      navigate("/admin");
+      if (response.data && response.data.token) {
+        // ✅ token ko localStorage me save karo
+        localStorage.setItem("token", response.data.token);
+        localStorage.setItem("isAuthenticated", "true"); // ✅ ek flag bhi set karo
+
+        // ✅ login ke baad admin panel bhejo
+        navigate("/admin");
+      } else {
+        setError("Invalid response from server");
+      }
     } catch (err) {
       setError("Invalid username or password");
     }

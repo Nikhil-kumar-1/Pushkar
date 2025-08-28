@@ -1,3 +1,4 @@
+// src/App.jsx
 import React from "react";
 import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
 import Navbar from "./Component/Home/Navbar";
@@ -36,7 +37,7 @@ const AppContent = () => {
 
         {/* ✅ Protected Admin Route */}
         <Route
-          path="/admin"
+          path="/admin/*"
           element={
             <ProtectedRoute>
               <AdminDashboard />
