@@ -11,6 +11,8 @@ import AchievementPage from "./Component/Achievement/Achievement.jsx";
 import ScrollToTop from "./Component/ScrollToTop.jsx";
 import AdminDashboard from "./Component/Admin/AdminDashboard.jsx";
 import AllVideos from "./Component/AllVideos/AllVideos.jsx";
+import Login from "./Component/Login/Login.jsx";
+import ProtectedRoute from "./Component/ProtectedRoute/ProtectedRoute.jsx";
 
 const AppContent = () => {
   const location = useLocation();
@@ -30,7 +32,17 @@ const AppContent = () => {
         <Route path="/services" element={<ServicePage />} />
         <Route path="/contact" element={<ContactPage />} />
         <Route path="/all-videos" element={<AllVideos />} />
-        <Route path="/admin/*" element={<AdminDashboard />} />
+        <Route path="/login" element={<Login />} />
+
+        {/* ✅ Protected Admin Route */}
+        <Route
+          path="/admin"
+          element={
+            <ProtectedRoute>
+              <AdminDashboard />
+            </ProtectedRoute>
+          }
+        />
       </Routes>
       {!isAdminRoute && <Footer />}
     </>

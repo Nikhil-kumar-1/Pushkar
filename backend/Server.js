@@ -35,9 +35,11 @@ app.use(express.json());
 // Routes import
 const articleRoutes = require("./routes/articles");
 const videoRoutes = require("./routes/videos");
+const authRoutes = require("./routes/authRoutes");
 
 app.use("/api", articleRoutes);
 app.use("/api/videos", videoRoutes);
+app.use("/api/auth", authRoutes);
 
 // Connect db
 mongoose

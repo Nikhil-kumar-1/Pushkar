@@ -21,7 +21,7 @@ export default function Footer() {
     { name: "Blog", path: "/blog" },
     { name: "Achievements", path: "/achievements" },
     { name: "Contact", path: "/contact" },
-    { name: "Admin", path: "/admin" }
+    { name: "Login", path: "/login" }
   ];
 
   const handleEmailClick = () => {
