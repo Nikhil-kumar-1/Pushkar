@@ -1,6 +1,7 @@
 import { Helmet } from "react-helmet";
 import { motion } from "framer-motion";
 import DrImage from "../../assets/Profile.webp";
+import { useNavigate } from "react-router-dom";
 
 const AboutPage = () => {
   const stats = [
@@ -9,6 +10,7 @@ const AboutPage = () => {
     { value: "50+", label: "Research Papers Published" },
     { value: "98%", label: "Patient Satisfaction Rate" },
   ];
+  const navigate = useNavigate();
 
   const education = [
     {
