@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import DocImg from "../../assets/Doctor.webp";
+import { useNavigate } from "react-router-dom";
 
 export default function Hero() {
   const [isMounted, setIsMounted] = useState(false);
@@ -8,6 +9,8 @@ export default function Hero() {
   useEffect(() => {
     setIsMounted(true);
   }, []);
+
+  const navigate = useNavigate(); 
 
   // Animation variants
   const container = {
@@ -106,7 +109,7 @@ export default function Hero() {
               <span className="text-[#6CCF5F] text-2xl">★</span>
               <div>
                 <p className="font-medium">Trusted by 10,000+ Patients</p>
-                <p className="text-sm">14+ Years of Experience</p>
+                <p className="text-sm">16+ Years of Experience</p>
               </div>
             </div>
           </motion.div>

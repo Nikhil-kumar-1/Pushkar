@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import Laparoscopic from "../../assets/Laparoscopic.webp";
 import LaparoscopicAppenndict  from "../../assets/LaparoscopicAppendicits.webp";
 import LaparoscopicSurgery  from "../../assets/LaparoscopicSurgery.webp";
@@ -70,6 +71,8 @@ export default function Services() {
     },
   };
 
+  const navigate=useNavigate();
+
   const item = {
     hidden: { opacity: 0, y: 30 },
     show: { opacity: 1, y: 0, transition: { duration: 0.6 } },
@@ -136,7 +139,7 @@ export default function Services() {
           <p className="text-lg mb-6 max-w-3xl mx-auto">
             Schedule a consultation to discuss the best treatment options for your condition
           </p>
-          <button className="bg-white cursor-pointer text-[#1A1F1C] px-8 py-3 rounded-full font-bold hover:bg-gray-100 transition shadow-lg">
+          <button onClick={()=> navigate("/contact")} className="bg-white cursor-pointer text-[#1A1F1C] px-8 py-3 rounded-full font-bold hover:bg-gray-100 transition shadow-lg">
             Book an Appointment
           </button>
         </motion.div>

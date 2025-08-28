@@ -4,7 +4,7 @@ import DrImage from "../../assets/Profile.webp";
 
 const AboutPage = () => {
   const stats = [
-    { value: "14+", label: "Years of Experience" },
+    { value: "16+", label: "Years of Experience" },
     { value: "10,000+", label: "Successful Surgeries" },
     { value: "50+", label: "Research Papers Published" },
     { value: "98%", label: "Patient Satisfaction Rate" },
@@ -288,7 +288,7 @@ const AboutPage = () => {
               </div>
               <div className="absolute -bottom-0 -right-0 bg-white p-4 rounded-xl shadow-lg border border-gray-100">
                 <p className="text-sm text-gray-500">Medical Experience</p>
-                <p className="text-xl font-bold text-[#1A1F1C]">14+ Years</p>
+                <p className="text-xl font-bold text-[#1A1F1C]">16+ Years</p>
               </div>
             </motion.div>
           </div>

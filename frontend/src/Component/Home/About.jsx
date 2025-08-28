@@ -55,7 +55,7 @@ export default function About() {
               className="absolute -bottom-6 -right-6 bg-[#1A1F1C] text-white px-6 py-3 rounded-xl shadow-lg"
             >
               <p className="text-sm">Medical Experience</p>
-              <p className="text-2xl font-bold">14+ Years</p>
+              <p className="text-2xl font-bold">16+ Years</p>
             </motion.div>
           </motion.div>
 

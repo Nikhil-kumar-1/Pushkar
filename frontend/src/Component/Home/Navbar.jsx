@@ -50,7 +50,7 @@ export default function Navbar() {
           whileHover={{ scale: 1.05 }}
         >
           <Link to="/" className="flex items-center">
-            <span className="text-[#6CCF5F]">AI</span>Health
+            <span className="text-[#6CCF5F]">Dr. </span>Pushkar Anand
           </Link>
         </motion.div>
 
