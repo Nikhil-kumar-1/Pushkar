@@ -8,6 +8,7 @@ const app = express();
 // Allowed origins
 const allowedOrigins = [
   "https://pushkar-plum.vercel.app",
+  "https://www.drpushkaranandsingh.com",
   "http://localhost:5173"
 ];
 
