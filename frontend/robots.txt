@@ -1,0 +1,6 @@
+User-agent: *
+Disallow: /node_modules/
+Disallow: /private/
+Allow: /
+
+Sitemap: https://www.drpushkaranandsingh.com/sitemap.xml
