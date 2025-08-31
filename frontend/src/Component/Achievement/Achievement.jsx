@@ -4,6 +4,7 @@ import { FaAward, FaUserMd, FaCalendarAlt, FaNewspaper, FaExternalLinkAlt } from
 import { useNavigate } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { backendUrl } from '../../config/config';
+
 const AchievementPage = () => {
     const navigate = useNavigate();
     const [articles, setArticles] = useState([]);
@@ -41,6 +42,37 @@ const AchievementPage = () => {
         }
     ];
 
+    // Sample data to use as fallback
+    const sampleArticles = [
+        {
+            _id: "1",
+            title: "Piles, Fistulas and Shame: Why Indians Delay Treatment",
+            link: "https://www.timesnownews.com/health/piles-fistulas-and-shame-why-indians-delay-treatment-and-how-surgeons-can-help-break-the-stigma-article-152344607/amp",
+            summary: "Dr. Pushkar Singh explains how cultural stigma prevents patients from seeking timely care and how modern techniques can help.",
+            imageUrl: "https://images.timesnownews.com/thumb/msid-152344605,thumbsize-34772,width-1280,height-720,resizemode-75/152344605.jpg",
+            tags: ["Piles", "Stigma", "Treatment"],
+            createdAt: "2022-03-15T00:00:00.000Z"
+        },
+        {
+            _id: "2",
+            title: "Going for a surgery? Here are 6 things that a surgeon wants you to know",
+            link: "https://www.hindustantimes.com/lifestyle/health/going-for-a-surgery-here-are-6-things-that-a-surgeon-wants-you-to-know-101754123400774.html",
+            summary: "From having complete awareness about the procedure to following the pre-operative instructions, here is a guidebook on things to do before having a surgery.",
+            imageUrl: "https://www.hindustantimes.com/ht-img/img/2025/08/02/550x309/surgery_1718935157726_1754123491761.jpg",
+            tags: ["Surgery", "Preparation", "Health"],
+            createdAt: "2025-08-02T03:50:00.000Z"
+        },
+        {
+            _id: "3",
+            title: "Surgery Isn't Always Scary: How New Techniques Help Faster Recovery",
+            link: "https://www.news18.com/amp/lifestyle/health-and-fitness/surgery-isnt-always-scary-how-new-techniques-help-faster-recovery-9496203.html",
+            summary: "Laser surgeries are minimally invasive, precise in ablation, and cause negligible bleeding. These advantages have improved patient acceptance and confidence.",
+            imageUrl: "https://images.news18.com/ibnlive/uploads/2025/08/Image-2025-08-648ba7553ee6ad77ff8999c569c21727-16x9.png?im=Resize,width=400,aspect=fit,type=normal",
+            tags: ["Laser Surgery", "Recovery", "Technology"],
+            createdAt: "2025-08-10T11:57:00.000Z"
+        }
+    ];
+
     // Fetch articles from your API
     useEffect(() => {
         const fetchArticles = async () => {
@@ -54,41 +86,20 @@ const AchievementPage = () => {
                 }
                 
                 const data = await response.json();
-                setArticles(data);
+                
+                // Only set articles if we get data from the backend
+                if (data && data.length > 0) {
+                    setArticles(data);
+                } else {
+                    // If backend returns empty array, use sample data
+                    setArticles(sampleArticles);
+                }
             } catch (err) {
                 console.error('Error fetching articles:', err);
-                setError('Failed to load articles. Please try again later.');
+                setError('Failed to load articles from server. Using sample data.');
                 
-                // Fallback to sample data if API fails
-                setArticles([
-                    {
-                        _id: "1",
-                        title: "Piles, Fistulas and Shame: Why Indians Delay Treatment",
-                        link: "https://www.timesnownews.com/health/piles-fistulas-and-shame-why-indians-delay-treatment-and-how-surgeons-can-help-break-the-stigma-article-152344607/amp",
-                        summary: "Dr. Pushkar Singh explains how cultural stigma prevents patients from seeking timely care and how modern techniques can help.",
-                        imageUrl: "https://images.timesnownews.com/thumb/msid-152344605,thumbsize-34772,width-1280,height-720,resizemode-75/152344605.jpg",
-                        tags: ["Piles", "Stigma", "Treatment"],
-                        createdAt: "2022-03-15T00:00:00.000Z"
-                    },
-                    {
-                        _id: "2",
-                        title: "Going for a surgery? Here are 6 things that a surgeon wants you to know",
-                        link: "https://www.hindustantimes.com/lifestyle/health/going-for-a-surgery-here-are-6-things-that-a-surgeon-wants-you-to-know-101754123400774.html",
-                        summary: "From having complete awareness about the procedure to following the pre-operative instructions, here is a guidebook on things to do before having a surgery.",
-                        imageUrl: "https://www.hindustantimes.com/ht-img/img/2025/08/02/550x309/surgery_1718935157726_1754123491761.jpg",
-                        tags: ["Surgery", "Preparation", "Health"],
-                        createdAt: "2025-08-02T03:50:00.000Z"
-                    },
-                    {
-                        _id: "3",
-                        title: "Surgery Isn't Always Scary: How New Techniques Help Faster Recovery",
-                        link: "https://www.news18.com/amp/lifestyle/health-and-fitness/surgery-isnt-always-scary-how-new-techniques-help-faster-recovery-9496203.html",
-                        summary: "Laser surgeries are minimally invasive, precise in ablation, and cause negligible bleeding. These advantages have improved patient acceptance and confidence.",
-                        imageUrl: "https://images.news18.com/ibnlive/uploads/2025/08/Image-2025-08-648ba7553ee6ad77ff8999c569c21727-16x9.png?im=Resize,width=400,aspect=fit,type=normal",
-                        tags: ["Laser Surgery", "Recovery", "Technology"],
-                        createdAt: "2025-08-10T11:57:00.000Z"
-                    }
-                ]);
+                // Use sample data if API fails
+                setArticles(sampleArticles);
             } finally {
                 setLoading(false);
             }
@@ -186,7 +197,7 @@ const AchievementPage = () => {
                             Professional <span className="text-[#6CCF5F]">Achievements</span>
                         </h2>
                         <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                            Recognitions for surgical excellence and contributions to medical advancement
+                            Achievements measured not in awards, but in the trust and well-being of people served.
                         </p>
                     </motion.div>
 
@@ -268,7 +279,7 @@ const AchievementPage = () => {
                         </h2>
                         
                         {error && (
-                            <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded mb-6 text-center">
+                            <div className="bg-yellow-100 border border-yellow-400 text-yellow-700 px-4 py-3 rounded mb-6 text-center">
                                 {error}
                             </div>
                         )}

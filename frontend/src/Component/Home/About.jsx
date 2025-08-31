@@ -49,14 +49,7 @@ export default function About() {
               </div>
             </div>
 
-            {/* Experience Badge */}
-            <motion.div
-              whileHover={{ scale: 1.05 }}
-              className="absolute -bottom-6 -right-6 bg-[#1A1F1C] text-white px-6 py-3 rounded-xl shadow-lg"
-            >
-              <p className="text-sm">Medical Experience</p>
-              <p className="text-2xl font-bold">16+ Years</p>
-            </motion.div>
+            
           </motion.div>
 
           {/* Right Side - Content */}
@@ -123,7 +116,7 @@ export default function About() {
             className="bg-[#f9fdf9] p-6 rounded-xl shadow-sm hover:shadow-md transition"
           >
             <div className="text-4xl text-[#6CCF5F] font-bold mb-3">
-              10,000+
+              10,00+
             </div>
             <h3 className="text-xl font-semibold mb-2">Successful Surgeries</h3>
             <p className="text-gray-600">Performed with precision and care</p>
@@ -133,7 +126,7 @@ export default function About() {
             variants={item}
             className="bg-[#f9fdf9] p-6 rounded-xl shadow-sm hover:shadow-md transition"
           >
-            <div className="text-4xl text-[#6CCF5F] font-bold mb-3">20+</div>
+            <div className="text-4xl text-[#6CCF5F] font-bold mb-3">5+</div>
             <h3 className="text-xl font-semibold mb-2">Articles Published</h3>
             <p className="text-gray-600">Published in medical journals</p>
           </motion.div>

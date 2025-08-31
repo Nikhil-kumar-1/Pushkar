@@ -5,10 +5,11 @@ import Laparoscopic from "../../assets/Laparoscopic.webp";
 import LaparoscopicAppenndict  from "../../assets/LaparoscopicAppendicits.webp";
 import LaparoscopicSurgery  from "../../assets/LaparoscopicSurgery.webp";
 import LaparoscopicHernia  from "../../assets/LaparoscopicHernia.webp";
-import LaserCyst from "../../assets/LaserCyst.webp";
+import LaserSurgeryForSmallTumor from "../../assets/LaserSurgeryForSmallTumor.webp";
 import LaserPiles from "../../assets/LaserPiles.webp";
-import LaserTumor from "../../assets/LaserTumor.webp";
+import LaserPilonidal from "../../assets/LaserPilonidal.webp";
 import LaserCircumcision from "../../assets/LaserCircumcision.webp";
+
 const services = [
   {
     title: "Laparoscopic Surgery for Fibroid/Pelvic Tumour/Cyst",
@@ -33,7 +34,7 @@ const services = [
   {
     title: "Laser Surgery for Small Tumour/Cyst/Lipoma",
     description: "Precision laser removal of benign growths with minimal bleeding and excellent cosmetic results.",
-    image: LaserCyst
+    image: LaserSurgeryForSmallTumor
   },
   {
     title: "Laser Surgery for Piles/Fistula/Fissure",
@@ -43,7 +44,7 @@ const services = [
   {
     title: "Laser Surgery for Pilonidal Sinus",
     description: "Advanced laser treatment for pilonidal sinus with minimal discomfort and faster recovery.",
-    image: LaserTumor
+    image: LaserPilonidal
   },
   {
     title: "Laser Surgery for Circumcision",
