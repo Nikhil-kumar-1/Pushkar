@@ -5,7 +5,7 @@ import Laparoscopic from "../../assets/Laparoscopic.webp";
 import LaparoscopicAppenndict  from "../../assets/LaparoscopicAppendicits.webp";
 import LaparoscopicSurgery  from "../../assets/LaparoscopicSurgery.webp";
 import LaparoscopicHernia  from "../../assets/LaparoscopicHernia.webp";
-import LaserSurgeryForSmallTumor from "../../assets/LaserSurgeryForSmallTumor.webp";
+import LaserSurgeryForSmallTumor from "../../assets/LaserSurgeryforSmallTumor.webp";
 import LaserPiles from "../../assets/LaserPiles.webp";
 import LaserPilonidal from "../../assets/LaserPilonidal.webp";
 import LaserCircumcision from "../../assets/LaserCircumcision.webp";
