@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
-import DocImg from "../../assets/Doctor.webp";
+import DocImg from "../../assets/profile1.webp";
 import { useNavigate } from "react-router-dom";
 
 export default function Hero() {
@@ -10,7 +10,7 @@ export default function Hero() {
     setIsMounted(true);
   }, []);
 
-  const navigate = useNavigate(); 
+  const navigate = useNavigate();
 
   // Animation variants
   const container = {
@@ -108,7 +108,7 @@ export default function Hero() {
             <div className="flex items-center gap-3 text-gray-600">
               <span className="text-[#6CCF5F] text-2xl">★</span>
               <div>
-                <p className="font-medium">Trusted by 10,000+ Patients</p>
+                <p className="font-medium">Trusted by 1000+ Patients</p>
                 <p className="text-sm">16+ Years of Experience</p>
               </div>
             </div>
@@ -148,8 +148,6 @@ export default function Hero() {
                 alt="Dr. Pushkar Anand Singh"
                 className="w-full h-full object-cover"
               />
-
-          
             </div>
           </div>
         </motion.div>

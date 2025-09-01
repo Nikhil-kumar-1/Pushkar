@@ -48,8 +48,6 @@ export default function About() {
                 />
               </div>
             </div>
-
-            
           </motion.div>
 
           {/* Right Side - Content */}
@@ -99,7 +97,6 @@ export default function About() {
               >
                 View Full Profile
               </motion.button>
-              
             </motion.div>
           </div>
         </motion.div>
@@ -115,9 +112,7 @@ export default function About() {
             variants={item}
             className="bg-[#f9fdf9] p-6 rounded-xl shadow-sm hover:shadow-md transition"
           >
-            <div className="text-4xl text-[#6CCF5F] font-bold mb-3">
-              10,00+
-            </div>
+            <div className="text-4xl text-[#6CCF5F] font-bold mb-3">1000+</div>
             <h3 className="text-xl font-semibold mb-2">Successful Surgeries</h3>
             <p className="text-gray-600">Performed with precision and care</p>
           </motion.div>

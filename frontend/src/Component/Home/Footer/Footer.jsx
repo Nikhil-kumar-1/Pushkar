@@ -21,7 +21,7 @@ export default function Footer() {
     { name: "Blog", path: "/blog" },
     { name: "Achievements", path: "/achievements" },
     { name: "Contact", path: "/contact" },
-    { name: "Login", path: "/login" }
+    { name: "Login", path: "/login" },
   ];
 
   const handleEmailClick = () => {
@@ -46,13 +46,26 @@ export default function Footer() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
-            className="space-y-4"
+            className="space-y-2"
           >
-            <h3 className="text-2xl font-bold">
-              Dr. <span className="text-[#6CCF5F]">Pushkar</span> Clinic
-            </h3>
+           
+        {/* Logo */}
+        <motion.div
+          className="flex items-center"
+          whileHover={{ scale: 1.05 }}
+        >
+          <Link to="/" className="flex items-center space-x-2">
+            <img 
+              src="Logo.png"   // Your logo path here
+              alt="Dr. Pushkar Anand Logo" 
+              className="h-30 w-auto object-contain" // Increased logo size
+              style={{ maxHeight: "300px" }} // Limits logo height
+            />
+          </Link>
+        </motion.div>
+     
             <p className="text-gray-300">
-              Advanced laparoscopic and laser surgical care with 14+ years of
+              Advanced laparoscopic and laser surgical care with 16 years of
               expertise.
             </p>
             <div className="flex items-center space-x-4 pt-2">
@@ -137,9 +150,7 @@ export default function Footer() {
             <ul className="space-y-2">
               {quickLinks.map((link, index) => (
                 <li key={index}>
-                  <motion.div
-                    whileHover={{ x: 5, color: "#6CCF5F" }}
-                  >
+                  <motion.div whileHover={{ x: 5, color: "#6CCF5F" }}>
                     <Link
                       to={link.path}
                       className="text-gray-300 hover:text-[#6CCF5F] transition block"
