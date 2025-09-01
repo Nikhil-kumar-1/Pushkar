@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
-import DocImg from "../../assets/profile1.webp";
+import DocImg from "../../assets/Profile1.webp";
 import { useNavigate } from "react-router-dom";
 
 export default function Hero() {
