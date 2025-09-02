@@ -9,9 +9,9 @@ const AboutPage = () => {
   // Professional statistics
   const stats = [
     { value: "16+", label: "Years of Experience" },
-    { value: "5+", label: "Articles Published" },
+    { value: "1000+", label: "Surgeries in Remote Areas" },
     { value: "1000+", label: "Successful Procedures" },
-   
+    { value: "100%", label: "Patient Satisfaction Rate" },
   ];
 
   // Education and certifications
@@ -372,7 +372,7 @@ const AboutPage = () => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
-            className="grid grid-cols-2 md:grid-cols-3 gap-6 mb-20"
+            className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-20"
           >
             {stats.map((stat, index) => (
               <motion.div
