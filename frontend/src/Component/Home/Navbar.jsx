@@ -3,6 +3,7 @@ import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link, useNavigate } from "react-router-dom";
 import { FaWhatsapp } from "react-icons/fa";
+import Logo from "../../assets/logo.png"
 
 const MotionLink = motion(Link);
 
@@ -52,7 +53,7 @@ export default function Navbar() {
         >
           <Link to="/" className="flex items-center space-x-2">
             <img 
-              src="Logo.png"   // Your logo path here
+              src={Logo}   // Your logo path here
               alt="Dr. Pushkar Anand Logo" 
               className="h-30 w-auto object-contain" // Increased logo size
               style={{ maxHeight: "300px" }} // Limits logo height

@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { Phone } from "lucide-react";
 import { Link } from "react-router-dom";
+import Logo from "../../../assets/logorecreate.webp"
 
 export default function Footer() {
   const services = [
@@ -56,9 +57,9 @@ export default function Footer() {
         >
           <Link to="/" className="flex items-center space-x-2">
             <img 
-              src="Logo.png"   // Your logo path here
+              src={Logo}  // Your logo path here
               alt="Dr. Pushkar Anand Logo" 
-              className="h-30 w-auto object-contain" // Increased logo size
+              className="h-20 w-auto object-contain" // Increased logo size
               style={{ maxHeight: "300px" }} // Limits logo height
             />
           </Link>
