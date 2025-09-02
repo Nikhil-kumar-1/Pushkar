@@ -5,17 +5,21 @@ import Services from './Service'
 import Video from './Video'
 import GetInTouch from '../GetInTouch'
 import Article from './Article'
+import CTA from '../Cta'
+import GoogleReviews from '../GoogleReview'
 
 
 const HOME = () => {
   return (
     <div>
   <HeroSection />
+   <Services />
+   <About />
   <Video />
-  <Services />
-  <About />
   <Article />
+  <GoogleReviews />
   <GetInTouch />
+  <CTA />
      
     </div>
   )

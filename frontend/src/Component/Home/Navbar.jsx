@@ -118,6 +118,20 @@ export default function Navbar() {
             />
           </MotionLink>
 
+           <MotionLink
+            to="/gallery"
+            className="relative px-3 py-2 text-[#1A1F1C] hover:text-[#6CCF5F] transition-colors font-medium flex items-center h-full"
+            whileHover={{ scale: 1.05 }}
+          >
+            Gallery
+            <motion.span
+              className="absolute bottom-1 left-0 w-0 h-0.5 bg-[#6CCF5F]"
+              initial={{ width: 0 }}
+              whileHover={{ width: "100%" }}
+              transition={{ duration: 0.3 }}
+            />
+          </MotionLink>
+
           <MotionLink
             to="/blogs"
             className="relative px-3 py-2 text-[#1A1F1C] hover:text-[#6CCF5F] transition-colors font-medium flex items-center h-full"

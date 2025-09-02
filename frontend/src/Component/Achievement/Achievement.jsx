@@ -11,36 +11,36 @@ const AchievementPage = () => {
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
 
-    const achievements = [
-        {
-            title: "Pioneer in Painless Piles Treatment",
-            description: "Developed a revolutionary laser technique for piles treatment that reduces recovery time from weeks to just 2-3 days with minimal discomfort.",
-            icon: <FaAward className="text-3xl text-[#6CCF5F]" />,
-            year: "2018",
-            source: "Indian Journal of Proctology"
-        },
-        {
-            title: "Breaking Stigma Around Fistula Treatment",
-            description: "Led awareness campaigns across rural India to educate about early fistula treatment, increasing patient turnout by 300% in participating regions.",
-            icon: <FaUserMd className="text-3xl text-[#6CCF5F]" />,
-            year: "2020",
-            source: "Times Now Health Feature"
-        },
-        {
-            title: "1000+ Successful Laser Surgeries",
-            description: "Performed over 1000 minimally invasive laser procedures for piles, fistula, and fissures with 98% success rate and zero cases of incontinence.",
-            icon: <FaUserMd className="text-3xl text-[#6CCF5F]" />,
-            year: "2022",
-            source: "Medical Excellence Awards"
-        },
-        {
-            title: "Featured in National Media",
-            description: "Recognized by Times Now, The Hindu, and India Today for contributions to making proctology treatments more accessible and stigma-free.",
-            icon: <FaNewspaper className="text-3xl text-[#6CCF5F]" />,
-            year: "2021",
-            source: "Times Now Health"
-        }
-    ];
+    // const achievements = [
+    //     {
+    //         title: "Pioneer in Painless Piles Treatment",
+    //         description: "Developed a revolutionary laser technique for piles treatment that reduces recovery time from weeks to just 2-3 days with minimal discomfort.",
+    //         icon: <FaAward className="text-3xl text-[#6CCF5F]" />,
+    //         year: "2018",
+    //         source: "Indian Journal of Proctology"
+    //     },
+    //     {
+    //         title: "Breaking Stigma Around Fistula Treatment",
+    //         description: "Led awareness campaigns across rural India to educate about early fistula treatment, increasing patient turnout by 300% in participating regions.",
+    //         icon: <FaUserMd className="text-3xl text-[#6CCF5F]" />,
+    //         year: "2020",
+    //         source: "Times Now Health Feature"
+    //     },
+    //     {
+    //         title: "1000+ Successful Laser Surgeries",
+    //         description: "Performed over 1000 minimally invasive laser procedures for piles, fistula, and fissures with 98% success rate and zero cases of incontinence.",
+    //         icon: <FaUserMd className="text-3xl text-[#6CCF5F]" />,
+    //         year: "2022",
+    //         source: "Medical Excellence Awards"
+    //     },
+    //     {
+    //         title: "Featured in National Media",
+    //         description: "Recognized by Times Now, The Hindu, and India Today for contributions to making proctology treatments more accessible and stigma-free.",
+    //         icon: <FaNewspaper className="text-3xl text-[#6CCF5F]" />,
+    //         year: "2021",
+    //         source: "Times Now Health"
+    //     }
+    // ];
 
     // Sample data to use as fallback
     const sampleArticles = [
@@ -157,11 +157,12 @@ const AchievementPage = () => {
                         transition={{ duration: 0.8 }}
                     >
                         <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
-                            <span className="text-[#6CCF5F]">Recognitions</span> & Media
+                            <span className="text-[#6CCF5F]">Media</span> & Coverage
                         </h1>
                         <p className="text-xl md:text-2xl max-w-3xl mx-auto">
-                            Celebrating milestones in surgical innovation and patient care advocacy
-                        </p>
+   Showcasing press mentions, interviews, and media highlights that reflect our work and recognition.
+</p>
+
                     </motion.div>
 
                     <div className="flex flex-wrap justify-center gap-4 mt-10">
@@ -184,6 +185,7 @@ const AchievementPage = () => {
             </section>
 
             {/* Achievements Section */}
+
             <section className="py-20 bg-gradient-to-b from-[#f9fdf9] to-[#e8f5e6]">
                 <div className="max-w-7xl mx-auto px-6">
                     <motion.div 
@@ -194,42 +196,14 @@ const AchievementPage = () => {
                         className="text-center mb-16"
                     >
                         <h2 className="text-3xl md:text-4xl font-bold text-[#1A1F1C] mb-4">
-                            Professional <span className="text-[#6CCF5F]">Achievements</span>
+                            Media <span className="text-[#6CCF5F]">Achievements</span>
                         </h2>
                         <p className="text-xl text-gray-600 max-w-3xl mx-auto">
                             Achievements measured not in awards, but in the trust and well-being of people served.
                         </p>
                     </motion.div>
 
-                    <div className="grid md:grid-cols-2 gap-8 mb-20">
-                        {achievements.map((achievement, index) => (
-                            <motion.div
-                                key={index}
-                                initial={{ opacity: 0, y: 30 }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                transition={{ duration: 0.5, delay: index * 0.1 }}
-                                viewport={{ once: true }}
-                                className="bg-white p-8 rounded-xl shadow-md hover:shadow-lg transition"
-                            >
-                                <div className="flex items-start mb-4">
-                                    <div className="mr-4">
-                                        {achievement.icon}
-                                    </div>
-                                    <div>
-                                        <h3 className="text-xl font-bold text-[#1A1F1C]">{achievement.title}</h3>
-                                        <div className="flex items-center text-gray-500 text-sm mt-1">
-                                            <FaCalendarAlt className="mr-1" />
-                                            <span className="mr-3">{achievement.year}</span>
-                                            <span>•</span>
-                                            <span className="ml-3 font-medium">{achievement.source}</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <p className="text-gray-600">{achievement.description}</p>
-                            </motion.div>
-                        ))}
-                    </div>
-
+                    
                     {/* Breaking Stigma Section */}
                     <motion.div
                         initial={{ opacity: 0 }}

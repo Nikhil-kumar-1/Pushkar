@@ -121,7 +121,7 @@ export default function Services() {
               <div className="p-6">
                 <h3 className="text-xl font-bold text-[#1A1F1C] mb-3">{service.title}</h3>
                 <p className="text-gray-600 mb-4">{service.description}</p>
-                <button className="cursor-pointer text-[#6CCF5F] font-medium hover:text-[#5bbd4f] transition">
+                <button onClick={()=> navigate("/services")} className="cursor-pointer text-[#6CCF5F] font-medium hover:text-[#5bbd4f] transition">
                   Learn More →
                 </button>
               </div>
@@ -136,12 +136,13 @@ export default function Services() {
           transition={{ delay: 0.8 }}
           className="mt-20 bg-gradient-to-r from-[#6CCF5F] to-[#1A1F1C] rounded-xl p-8 text-center text-white"
         >
-          <h3 className="text-2xl md:text-3xl font-bold mb-4">Personalized Surgical Care</h3>
-          <p className="text-lg mb-6 max-w-3xl mx-auto">
-            Schedule a consultation to discuss the best treatment options for your condition
-          </p>
-          <button onClick={()=> navigate("/contact")} className="bg-white cursor-pointer text-[#1A1F1C] px-8 py-3 rounded-full font-bold hover:bg-gray-100 transition shadow-lg">
-            Book an Appointment
+         <h3 className="text-3xl font-bold mb-4">All Services</h3>
+<p className="text-xl mb-6 max-w-3xl mx-auto">
+  Explore our wide range of professional services designed to meet your needs with quality and care.
+</p>
+
+          <button onClick={()=> navigate("/services")} className="bg-white cursor-pointer text-[#1A1F1C] px-8 py-3 rounded-full font-bold hover:bg-gray-100 transition shadow-lg">
+            View Full Services
           </button>
         </motion.div>
       </div>
