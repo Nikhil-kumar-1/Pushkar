@@ -108,7 +108,7 @@ export default function Hero() {
             <div className="flex items-center gap-3 text-gray-600">
               <span className="text-[#6CCF5F] text-2xl">★</span>
               <div>
-                <p className="font-medium">Trusted by 1000+ Patients</p>
+                <p className="font-medium">Trusted by 10000+ Patients</p>
                 <p className="text-sm">16+ Years of Experience</p>
               </div>
             </div>

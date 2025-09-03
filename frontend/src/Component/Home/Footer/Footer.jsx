@@ -5,14 +5,14 @@ import Logo from "../../../assets/logorecreate.webp"
 
 export default function Footer() {
   const services = [
-    "Fibroid/Pelvic Surgery",
-    "Appendix Surgery",
     "Gall Bladder Stone Surgery",
     "Hernia Surgery",
     "Small Tumour/Cyst/Lipoma Surgery",
     "Piles/Fistula/Fissure Surgery",
     "Pilonidal Sinus Surgery",
     "Circumcision Surgery",
+    "Fibroid/Pelvic Surgery",
+    "Appendix Surgery",
   ];
 
   const quickLinks = [

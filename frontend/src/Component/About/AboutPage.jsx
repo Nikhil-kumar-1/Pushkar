@@ -10,7 +10,7 @@ const AboutPage = () => {
   const stats = [
     { value: "16+", label: "Years of Experience" },
     { value: "1000+", label: "Surgeries in Remote Areas" },
-    { value: "1000+", label: "Successful Procedures" },
+    { value: "5000+", label: "Successful Procedures" },
     { value: "100%", label: "Patient Satisfaction Rate" },
   ];
 

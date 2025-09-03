@@ -112,7 +112,7 @@ export default function About() {
             variants={item}
             className="bg-[#f9fdf9] p-6 rounded-xl shadow-sm hover:shadow-md transition"
           >
-            <div className="text-4xl text-[#6CCF5F] font-bold mb-3">1000+</div>
+            <div className="text-4xl text-[#6CCF5F] font-bold mb-3">5000+</div>
             <h3 className="text-xl font-semibold mb-2">Successful Surgeries</h3>
             <p className="text-gray-600">Performed with precision and care</p>
           </motion.div>
@@ -123,7 +123,7 @@ export default function About() {
           >
             <div className="text-4xl text-[#6CCF5F] font-bold mb-3">5+</div>
             <h3 className="text-xl font-semibold mb-2">Articles Published</h3>
-            <p className="text-gray-600">Published in medical journals</p>
+            <p className="text-gray-600">Multiple articles in Major Media Publication</p>
           </motion.div>
 
           <motion.div
