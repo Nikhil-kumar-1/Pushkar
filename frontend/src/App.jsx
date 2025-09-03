@@ -15,6 +15,7 @@ import AllVideos from "./Component/AllVideos/AllVideos.jsx";
 import Login from "./Component/Login/Login.jsx";
 import PageNotFound from "./Component/NotFound/PageNotFound.jsx";
 import ProtectedRoute from "./Component/ProtectedRoute/ProtectedRoute.jsx";
+import Gallery from "./Component/Gallery/Gallery.jsx";
 
 const AppContent = () => {
   const location = useLocation();
@@ -33,6 +34,7 @@ const AppContent = () => {
         <Route path="/achievements" element={<AchievementPage />} />
         <Route path="/services" element={<ServicePage />} />
         <Route path="/contact" element={<ContactPage />} />
+        <Route path="/gallery" element={<Gallery/>} />
         <Route path="/all-videos" element={<AllVideos />} />
         <Route path="/login" element={<Login />} />
         <Route path="*" element={<PageNotFound/>} />
