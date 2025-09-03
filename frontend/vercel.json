@@ -11,6 +11,10 @@
     {
       "source": "/(.*)",
       "destination": "/index.html"
+    },
+     {
+      "source": "/blog/(.*)",
+      "destination": "https://www.drpushkaranandsingh.com/$1"
     }
   ]
 }
