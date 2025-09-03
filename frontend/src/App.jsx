@@ -13,7 +13,7 @@ import ScrollToTop from "./Component/ScrollToTop.jsx";
 import AdminDashboard from "./Component/Admin/AdminDashboard.jsx";
 import AllVideos from "./Component/AllVideos/AllVideos.jsx";
 import Login from "./Component/Login/Login.jsx";
-import PageNotFound from "./Component/NotFound/PageNotFound.jsx";
+
 import ProtectedRoute from "./Component/ProtectedRoute/ProtectedRoute.jsx";
 import Gallery from "./Component/Gallery/Gallery.jsx";
 
@@ -37,7 +37,7 @@ const AppContent = () => {
         <Route path="/gallery" element={<Gallery/>} />
         <Route path="/all-videos" element={<AllVideos />} />
         <Route path="/login" element={<Login />} />
-        <Route path="*" element={<PageNotFound/>} />
+        {/* <Route path="*" element={<PageNotFound/>} /> */}
 
         {/* ✅ Protected Admin Route */}
         <Route
