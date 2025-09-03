@@ -2,6 +2,9 @@ require("dotenv").config();
 const express = require("express");
 const cors = require("cors");
 const mongoose = require("mongoose");
+const cloudinary = require("cloudinary").v2;
+const imageRoutes = require("./routes/imageRoutes");
+
 
 const app = express();
 
@@ -32,6 +35,14 @@ app.use(
 
 // Middleware for parsing JSON requests
 app.use(express.json());
+app.use(express.json({ limit: "10mb" })); // base64 ke liye
+
+// Cloudinary Config
+cloudinary.config({
+  cloud_name: process.env.CLOUD_NAME,
+  api_key: process.env.API_KEY,
+  api_secret: process.env.API_SECRET,
+});
 
 // Routes import
 const articleRoutes = require("./routes/articles");
@@ -41,6 +52,7 @@ const authRoutes = require("./routes/authRoutes");
 app.use("/api", articleRoutes);
 app.use("/api/videos", videoRoutes);
 app.use("/api/auth", authRoutes);
+app.use("/api/images", imageRoutes);
 
 // Connect db
 mongoose
