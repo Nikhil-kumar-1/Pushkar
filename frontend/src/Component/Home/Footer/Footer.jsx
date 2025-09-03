@@ -5,14 +5,21 @@ import Logo from "../../../assets/logorecreate.webp"
 
 export default function Footer() {
   const services = [
-    "Gall Bladder Stone Surgery",
-    "Hernia Surgery",
-    "Small Tumour/Cyst/Lipoma Surgery",
-    "Piles/Fistula/Fissure Surgery",
-    "Pilonidal Sinus Surgery",
-    "Circumcision Surgery",
-    "Fibroid/Pelvic Surgery",
-    "Appendix Surgery",
+    "Laparoscopic Surgery for Gall Bladder Stone",
+    "Laparoscopic Surgery for Hernia",
+    "Laparoscopic Surgery for Appendicitis",
+    "Laparoscopic Surgery for Pelvic Tumour/Cyst",
+    "Laparoscopic Surgery for Fibroid",
+    "Laser Surgery for Piles",
+    "Laser Surgery for Fistula",
+    "Laser Surgery for Fissure",
+    "Laser Surgery for Pilonidal Sinus",
+    "Laser Surgery for Circumcision",
+    "Laser Surgery for Cyst",
+    "Laser Surgery for Small Tumour",
+
+
+
   ];
 
   const quickLinks = [
@@ -20,6 +27,7 @@ export default function Footer() {
     { name: "About", path: "/about" },
     { name: "Services", path: "/services" },
     { name: "Blog", path: "/blog" },
+    { name: "Gallery", path: "/gallery" },
     { name: "Achievements", path: "/achievements" },
     { name: "Contact", path: "/contact" },
     { name: "Login", path: "/login" },
@@ -125,15 +133,17 @@ export default function Footer() {
             className="space-y-4"
           >
             <h3 className="text-xl font-bold text-[#6CCF5F]">Our Services</h3>
-            <ul className="space-y-2">
+            <ul className="space-y-2 max-h-80  pr-2">
               {services.map((service, index) => (
                 <li key={index}>
-                  <motion.div
-                    whileHover={{ x: 5, color: "#6CCF5F" }}
-                    className="text-gray-300 hover:text-[#6CCF5F] transition cursor-pointer"
-                  >
-                    {service}
-                  </motion.div>
+                  <Link to="/services">
+                    <motion.div
+                      whileHover={{ x: 5, color: "#6CCF5F" }}
+                      className="text-gray-300 hover:text-[#6CCF5F] transition cursor-pointer text-sm"
+                    >
+                      {service}
+                    </motion.div>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -289,7 +299,7 @@ export default function Footer() {
           <div className="flex justify-center space-x-6 mt-4">
             <motion.a
               whileHover={{ scale: 1.2, color: "#6CCF5F" }}
-              href="#"
+              href="https://www.facebook.com/drpushkaranand/"
               className="text-gray-400 hover:text-[#6CCF5F] transition"
               aria-label="Facebook"
             >
@@ -309,7 +319,7 @@ export default function Footer() {
             </motion.a>
             <motion.a
               whileHover={{ scale: 1.2, color: "#6CCF5F" }}
-              href="#"
+              href="https://www.instagram.com/drpushkaranand/?hl=en"
               className="text-gray-400 hover:text-[#6CCF5F] transition"
               aria-label="Instagram"
             >
