@@ -10,7 +10,7 @@
     },
     {
       "source": "/blogs/(.*)",
-      "destination": "https://www.drpushkaranandsingh.com/$1"
+      "destination": "https://www.drpushkaranandsingh.com/blogs/$1"
     },
     {
       "source": "/(.*)",
