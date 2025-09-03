@@ -104,7 +104,7 @@ export default function VideoGrid() {
           className="text-gray-800 text-center mb-12"
         >
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            Our <span className="text-[#6CCF5F]">Procedures</span>
+            Video <span className="text-[#6CCF5F]">Library</span>
           </h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
             Watch our collection of advanced surgical procedures performed by our expert team

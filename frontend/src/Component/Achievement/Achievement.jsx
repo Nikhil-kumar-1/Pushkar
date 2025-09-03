@@ -171,7 +171,7 @@ const AchievementPage = () => {
             transition={{ duration: 0.8 }}
           >
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
-              <span className="text-[#6CCF5F]">Media</span> & Coverage
+              <span className="text-[#6CCF5F]">Media</span>  Coverage
             </h1>
             <p className="text-xl md:text-2xl max-w-3xl mx-auto">
               Showcasing press mentions, interviews, and media highlights that
@@ -202,7 +202,7 @@ const AchievementPage = () => {
 
       {/* Achievements Section */}
 
-      <section className="py-20 bg-gradient-to-b from-[#f9fdf9] to-[#e8f5e6]">
+      <section className=" bg-gradient-to-b from-[#f9fdf9] to-[#e8f5e6]">
         <div className="max-w-7xl mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -211,16 +211,10 @@ const AchievementPage = () => {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-3xl md:text-4xl font-bold text-[#1A1F1C] mb-4">
-              Media <span className="text-[#6CCF5F]">Achievements</span>
-            </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Achievements measured not in awards, but in the trust and
-              well-being of people served.
-            </p>
+            
           </motion.div>
 
-          {/* Breaking Stigma Section */}
+          {/* Breaking Stigma Section 
           <motion.div
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
@@ -267,9 +261,9 @@ const AchievementPage = () => {
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-3xl font-bold text-[#1A1F1C] mb-8 text-center">
+            {/* <h2 className="text-3xl font-bold text-[#1A1F1C] mb-8 text-center">
               In The <span className="text-[#6CCF5F]">Media</span>
-            </h2>
+            </h2> */}
 
             {error && (
               <div className="bg-yellow-100 border border-yellow-400 text-yellow-700 px-4 py-3 rounded mb-6 text-center">
