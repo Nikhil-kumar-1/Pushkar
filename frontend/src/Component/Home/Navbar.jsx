@@ -3,7 +3,7 @@ import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link, useNavigate } from "react-router-dom";
 import { FaWhatsapp } from "react-icons/fa";
-import Logo from "../../assets/logo.png"
+import Logo from "../../assets/logo.webp"
 
 const MotionLink = motion(Link);
 
