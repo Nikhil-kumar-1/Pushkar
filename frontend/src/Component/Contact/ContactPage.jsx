@@ -94,10 +94,8 @@ const ContactPage = () => {
           name="description"
           content="Reach Dr. Pushkar Anand Singh for consultations. Visit Galaxy Diamond Plaza clinic, Sector 4 Greater Noida West, or call +91 92051 11477 for appointments and expert care."
         />
-        <meta
-          name="keywords"
-          content="laparoscopic surgery, laser surgery, gallstone treatment, hernia repair, piles laser treatment, fistula surgery, Dr. Pushkar Singh"
-        />
+        <meta name="keywords" content="Contact Dr Pushkar Anand Singh, Appointment Booking, Clinic Location, Phone Number, Email, Noida Clinic Address, Greater Noida Surgery Center"/>
+
         <meta
           property="og:title"
           content="Advanced Surgical Services | Dr. Pushkar Anand Singh"

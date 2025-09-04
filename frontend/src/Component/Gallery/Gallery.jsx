@@ -93,7 +93,23 @@ const Gallery = () => {
     <Helmet>
               <title>Gallery | Dr. Pushkar Anand Singh’s Surgical Practice & Events</title>
               <meta name="description" content="View the gallery of Dr. Pushkar Anand Singh showcasing patient care, surgical practice, achievements, and events. Explore moments reflecting his expertise and compassionate medical journey." />
-              <meta name="keywords" content="laparoscopic surgeon, laser surgery, gallbladder stone, hernia treatment, piles treatment, fissure surgery, best surgeon in Noida, Dr. Pushkar Anand Singh" />
+           <meta
+        name="keywords"
+        content="
+          Video Gallery,
+          Surgery Videos,
+          Laparoscopic Surgery Video,
+          Laser Surgery Video,
+          Patient Testimonials,
+          Medical Procedures,
+          Clinic Highlights,
+          Dr Pushkar Anand Singh Videos,
+          Noida Surgeon Videos,
+          Greater Noida Surgery Footage,
+          Healthcare Video Library,
+          Treatment Demonstration
+        "
+      />
               
               {/* Open Graph / Facebook */}
               <meta property="og:type" content="website" />

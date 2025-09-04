@@ -147,9 +147,11 @@ const AchievementPage = () => {
           content="Discover Dr. Pushkar Anand Singh’s achievements, awards, and media features. Celebrated laparoscopic and laser surgeon recognized for excellence, patient trust, and advanced surgical innovation."
         />
         <meta
-          name="keywords"
-          content="Dr. Pushkar Singh achievements, piles laser treatment, fistula surgery, laparoscopic surgeon awards, medical recognition"
-        />
+        name="keywords"
+        content="
+          Awards, Achievements, Recognitions, Certificates, Medical Excellence, Laparoscopic Surgery Awards, Laser Surgery Recognition, Noida Healthcare Awards, Greater Noida Surgeon Achievements, Professional Milestones, Surgical Expertise
+        "
+      />
         
         <meta
           property="og:title"

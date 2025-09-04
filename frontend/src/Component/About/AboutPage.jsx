@@ -193,7 +193,8 @@ const AboutPage = () => {
       <Helmet>
               <title>About Dr. Pushkar Anand Singh | Trusted Laparoscopic Surgeon </title>
               <meta name="description" content="Learn about Dr. Pushkar Anand Singh, MBBS, DNB, with 14+ years of surgical expertise. Renowned for laparoscopic and laser treatments, combining skill, compassion, and patient care." />
-              <meta name="keywords" content="laparoscopic surgeon, laser surgery, gallbladder stone, hernia treatment, piles treatment, fissure surgery, best surgeon in Noida, Dr. Pushkar Anand Singh" />
+           <meta name="keywords" content="About Dr Pushkar Anand Singh, Experienced Surgeon, Laparoscopic Expertise, Laser Surgery Specialist, Noida Surgeon, Greater Noida Healthcare, Medical Experience, Patient Care"/>
+
               
               {/* Open Graph / Facebook */}
               <meta property="og:type" content="website" />

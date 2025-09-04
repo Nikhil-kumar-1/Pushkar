@@ -46,7 +46,25 @@ const AllVideos = () => {
     <Helmet>
               <title>Video Libaray | Dr. Pushkar Anand Singh’s Surgical Insights</title>
               <meta name="description" content="Watch videos of Dr. Pushkar Anand Singh explaining surgical procedures, patient care, and success stories. Explore educational insights into laparoscopic and laser treatments in Delhi NCR." />
-              <meta name="keywords" content="laparoscopic surgeon, laser surgery, gallbladder stone, hernia treatment, piles treatment, fissure surgery, best surgeon in Noida, Dr. Pushkar Anand Singh" />
+          <meta
+        name="keywords"
+        content="
+          All Videos,
+          Video Gallery,
+          Surgery Videos,
+          Laparoscopic Surgery Video,
+          Laser Surgery Video,
+          Patient Testimonials,
+          Treatment Highlights,
+          Medical Procedures,
+          Clinic Videos,
+          Dr Pushkar Anand Singh Videos,
+          Noida Surgeon Videos,
+          Greater Noida Surgery Videos,
+          Healthcare Video Library
+        "
+      />
+
               
               {/* Open Graph / Facebook */}
               <meta property="og:type" content="website" />
