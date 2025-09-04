@@ -126,6 +126,10 @@ const ContactPage = () => {
           name="twitter:image"
           content="https://images.unsplash.com/photo-1579684385127-1ef15d508118?w=1200&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8bGFwYXJvc2NvcGljJTIwc3VyZ2VyeXxlbnwwfHwwfHx8MA%3D%3D"
         />
+        <meta
+          name="robots"
+          content="index, follow, max-snippet:-1, max-video-preview:-1, max-image-preview:large"
+        />
         <link rel="canonical" href="https://www.drpushkarsingh.com/contact" />
       </Helmet>
 

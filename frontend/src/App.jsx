@@ -7,7 +7,7 @@ import Footer from "./Component/Home/Footer/Footer";
 import HeroSection from "./Component/Home/Hero";
 import AboutPage from "./Component/About/AboutPage";
 import ServicePage from "./Component/Services/ServicePage";
-import ContactPage from "./Component/Contact/ContactPage";
+import ContactPage from "./Component/Contact/ContactPage.jsx";
 import AchievementPage from "./Component/Achievement/Achievement.jsx";
 import ScrollToTop from "./Component/ScrollToTop.jsx";
 import AdminDashboard from "./Component/Admin/AdminDashboard.jsx";

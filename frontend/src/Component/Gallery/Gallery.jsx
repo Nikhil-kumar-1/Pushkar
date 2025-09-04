@@ -124,7 +124,10 @@ const Gallery = () => {
               <meta property="twitter:title" content="Dr. Pushkar Anand Singh | Best Laparoscopic Surgeon in Noida" />
               <meta property="twitter:description" content="Renowned laparoscopic and laser surgeon in Noida with 16+ years of experience. Specialized in gallbladder stones, hernia, piles, and fissure treatment." />
               <meta property="twitter:image" content="https://www.drpushkaranandsingh.com/images/twitter-image.jpg" />
-              
+              <meta
+          name="robots"
+          content="index, follow, max-snippet:-1, max-video-preview:-1, max-image-preview:large"
+        />
               {/* Canonical URL */}
               <link rel="canonical" href="https://www.drpushkaranandsingh.com/gallery" />
             </Helmet>
