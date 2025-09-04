@@ -7,6 +7,7 @@ import LaparoscopicSurgery from "../../assets/LaparoscopicSurgery.webp";
 import LaparoscopicHernia from "../../assets/LaparoscopicHernia.webp";
 import LaserCyst from "../../assets/LaserCyst.webp";
 import LaserPiles from "../../assets/LaserPiles.webp";
+import Cyst from "../../assets/Cyst.webp";
 import LaserTumor from "../../assets/LaserTumor.webp";
 import LaserCircumcision from "../../assets/LaserCircumcision.webp";
 const ServicePage = () => {
@@ -52,7 +53,7 @@ const ServicePage = () => {
       title: "Laparoscopic Surgery for Pelvic Tumour/Cyst",
       description:
         "Precision removal of ovarian cysts and pelvic masses with fertility-preserving techniques. Our gynecologic laparoscopy specialists ensure optimal outcomes with minimal tissue damage.",
-      image: LaserTumor,
+      image: Cyst,
       benefits: [
         "Fertility preservation",
         "2mm hidden incisions",
