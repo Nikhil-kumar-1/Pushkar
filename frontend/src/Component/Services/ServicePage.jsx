@@ -161,10 +161,10 @@ const ServicePage = () => {
   return (
     <>
       <Helmet>
-        <title>Advanced Surgical Services | Dr. Pushkar Anand Singh</title>
+        <title>Surgical Services | Laparoscopic & Laser Treatments in Delhi NCR</title>
         <meta
           name="description"
-          content="Comprehensive laparoscopic and laser surgical treatments for gallstones, hernia, piles, fistula and more. Minimally invasive procedures with faster recovery."
+          content="Explore advanced surgical services by Dr. Pushkar Anand Singh. Expert care in laparoscopic gallbladder, hernia, appendix, piles, and laser surgeries with quick recovery and safety."
         />
         <meta
           name="keywords"

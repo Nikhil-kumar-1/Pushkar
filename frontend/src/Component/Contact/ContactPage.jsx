@@ -88,12 +88,47 @@ const ContactPage = () => {
     <>
       <Helmet>
         <title>
-          Contact Dr. Pushkar Anand Singh | Laparoscopic Surgeon in Delhi
+          Contact Dr. Pushkar Anand Singh | Book Consultation in Delhi NCR
         </title>
         <meta
           name="description"
-          content="Contact Dr. Pushkar Anand Singh for appointments and consultations. Clinic located in Saket, New Delhi with flexible working hours."
+          content="Reach Dr. Pushkar Anand Singh for consultations. Visit Galaxy Diamond Plaza clinic, Sector 4 Greater Noida West, or call +91 92051 11477 for appointments and expert care."
         />
+        <meta
+          name="keywords"
+          content="laparoscopic surgery, laser surgery, gallstone treatment, hernia repair, piles laser treatment, fistula surgery, Dr. Pushkar Singh"
+        />
+        <meta
+          property="og:title"
+          content="Advanced Surgical Services | Dr. Pushkar Anand Singh"
+        />
+        <meta
+          property="og:description"
+          content="Minimally invasive laparoscopic and laser surgical treatments with faster recovery times and better outcomes"
+        />
+        <meta property="og:type" content="website" />
+        <meta
+          property="og:url"
+          content="https://www.drpushkarsingh.com/contact"
+        />
+        <meta
+          property="og:image"
+          content="https://images.unsplash.com/photo-1579684385127-1ef15d508118?w=1200&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8bGFwYXJvc2NvcGljJTIwc3VyZ2VyeXxlbnwwfHwwfHx8MA%3D%3D"
+        />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta
+          name="twitter:title"
+          content="Advanced Surgical Services | Dr. Pushkar Anand Singh"
+        />
+        <meta
+          name="twitter:description"
+          content="Minimally invasive surgical treatments with faster recovery times"
+        />
+        <meta
+          name="twitter:image"
+          content="https://images.unsplash.com/photo-1579684385127-1ef15d508118?w=1200&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8bGFwYXJvc2NvcGljJTIwc3VyZ2VyeXxlbnwwfHwwfHx8MA%3D%3D"
+        />
+        <link rel="canonical" href="https://www.drpushkarsingh.com/contact" />
       </Helmet>
 
       {/* Hero Section */}

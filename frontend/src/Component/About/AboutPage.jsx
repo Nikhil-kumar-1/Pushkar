@@ -191,34 +191,27 @@ const AboutPage = () => {
   return (
     <>
       <Helmet>
-        <title>
-          About Dr. Pushkar Anand Singh | Renowned Laparoscopic Surgeon in Noida
-        </title>
-        <meta
-          name="description"
-          content="Dr. Pushkar Anand Singh is a highly experienced MBBS, DNB surgeon specializing in laparoscopic and laser surgeries with 15+ years of expertise in Noida and Delhi NCR."
-        />
-        <meta
-          name="keywords"
-          content="Dr. Pushkar Singh, Laparoscopic Surgeon Noida, Laser Surgery Specialist, Hernia Surgery, Gallbladder Surgery, Piles Laser Treatment, Laparoscopic Hysterectomy"
-        />
-        <meta
-          property="og:title"
-          content="About Dr. Pushkar Anand Singh | Top Laparoscopic Surgeon"
-        />
-        <meta
-          property="og:description"
-          content="Meet Dr. Pushkar Anand Singh, a distinguished laparoscopic and laser surgery specialist with 15+ years of surgical experience in Noida and Delhi NCR."
-        />
-        <meta property="og:type" content="website" />
-        <meta
-          property="og:url"
-          content="https://www.drpushkarsingh.com/about"
-        />
-        <meta property="og:image" content={DrImage} />
-        <meta name="twitter:card" content="summary_large_image" />
-        <link rel="canonical" href="https://www.drpushkarsingh.com/about" />
-      </Helmet>
+              <title>About Dr. Pushkar Anand Singh | Trusted Laparoscopic Surgeon </title>
+              <meta name="description" content="Learn about Dr. Pushkar Anand Singh, MBBS, DNB, with 14+ years of surgical expertise. Renowned for laparoscopic and laser treatments, combining skill, compassion, and patient care." />
+              <meta name="keywords" content="laparoscopic surgeon, laser surgery, gallbladder stone, hernia treatment, piles treatment, fissure surgery, best surgeon in Noida, Dr. Pushkar Anand Singh" />
+              
+              {/* Open Graph / Facebook */}
+              <meta property="og:type" content="website" />
+              <meta property="og:url" content="https://www.drpushkaranandsingh.com/about" />
+              <meta property="og:title" content="Dr. Pushkar Anand Singh | Best Laparoscopic Surgeon in Noida" />
+              <meta property="og:description" content="Renowned laparoscopic and laser surgeon in Noida with 16+ years of experience. Specialized in gallbladder stones, hernia, piles, and fissure treatment." />
+              <meta property="og:image" content="https://www.drpushkaranandsingh.com/images/og-image.jpg" />
+              
+              {/* Twitter */}
+              <meta property="twitter:card" content="summary_large_image" />
+              <meta property="twitter:url" content="https://www.drpushkaranandsingh.com/" />
+              <meta property="twitter:title" content="Dr. Pushkar Anand Singh | Best Laparoscopic Surgeon in Noida" />
+              <meta property="twitter:description" content="Renowned laparoscopic and laser surgeon in Noida with 16+ years of experience. Specialized in gallbladder stones, hernia, piles, and fissure treatment." />
+              <meta property="twitter:image" content="https://www.drpushkaranandsingh.com/images/twitter-image.jpg" />
+              
+              {/* Canonical URL */}
+              <link rel="canonical" href="https://www.drpushkaranandsingh.com/about" />
+            </Helmet>
 
       {/* Hero Section */}
       <section className="relative pt-24 pb-16 md:pt-32 md:pb-24 h-[90vh] min-h-[600px] max-h-[800px] flex items-center">

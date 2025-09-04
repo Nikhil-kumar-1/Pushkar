@@ -141,15 +141,47 @@ const AchievementPage = () => {
   return (
     <>
       <Helmet>
-        <title>Achievements & Media | Dr. Pushkar Anand Singh</title>
+        <title>Achievements | Awards & Recognition of Dr. Pushkar Anand Singh</title>
         <meta
           name="description"
-          content="Recognitions, awards and media features highlighting Dr. Pushkar Singh's contributions to laparoscopic and laser surgery."
+          content="Discover Dr. Pushkar Anand Singh’s achievements, awards, and media features. Celebrated laparoscopic and laser surgeon recognized for excellence, patient trust, and advanced surgical innovation."
         />
         <meta
           name="keywords"
           content="Dr. Pushkar Singh achievements, piles laser treatment, fistula surgery, laparoscopic surgeon awards, medical recognition"
         />
+        
+        <meta
+          property="og:title"
+          content="Advanced Surgical Services | Dr. Pushkar Anand Singh"
+        />
+        <meta
+          property="og:description"
+          content="Minimally invasive laparoscopic and laser surgical treatments with faster recovery times and better outcomes"
+        />
+        <meta property="og:type" content="website" />
+        <meta
+          property="og:url"
+          content="https://www.drpushkarsingh.com/achievements"
+        />
+        <meta
+          property="og:image"
+          content="https://images.unsplash.com/photo-1579684385127-1ef15d508118?w=1200&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8bGFwYXJvc2NvcGljJTIwc3VyZ2VyeXxlbnwwfHwwfHx8MA%3D%3D"
+        />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta
+          name="twitter:title"
+          content="Advanced Surgical Services | Dr. Pushkar Anand Singh"
+        />
+        <meta
+          name="twitter:description"
+          content="Minimally invasive surgical treatments with faster recovery times"
+        />
+        <meta
+          name="twitter:image"
+          content="https://images.unsplash.com/photo-1579684385127-1ef15d508118?w=1200&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8bGFwYXJvc2NvcGljJTIwc3VyZ2VyeXxlbnwwfHwwfHx8MA%3D%3D"
+        />
+        <link rel="canonical" href="https://www.drpushkarsingh.com/achievements" />
       </Helmet>
 
       {/* Hero Section */}
