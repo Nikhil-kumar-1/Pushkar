@@ -179,16 +179,20 @@ export default function Navbar() {
 
         {/* Mobile Toggle Button */}
         <motion.button
-          className="md:hidden p-2"
-          onClick={() => setOpen(!open)}
-          whileTap={{ scale: 0.9 }}
-        >
-          {open ? (
-            <X size={28} className="text-[#1A1F1C]" />
-          ) : (
-            <Menu size={28} className="text-[#1A1F1C]" />
-          )}
-        </motion.button>
+      type="button"
+      className="md:hidden p-2 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#1A1F1C]"
+      whileTap={{ scale: 0.9 }}
+      onClick={() => setOpen(!open)}
+      aria-label={open ? "Close main menu" : "Open main menu"}
+      aria-expanded={open}
+      aria-controls="mobile-nav"   // the id of the menu <nav> you’re toggling
+    >
+      {open ? (
+        <X size={28} className="text-[#1A1F1C]" aria-hidden="true" />
+      ) : (
+        <Menu size={28} className="text-[#1A1F1C]" aria-hidden="true" />
+      )}
+    </motion.button>
       </div>
 
       {/* Mobile Menu */}
