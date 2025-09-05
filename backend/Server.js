@@ -48,11 +48,13 @@ cloudinary.config({
 const articleRoutes = require("./routes/articles");
 const videoRoutes = require("./routes/videos");
 const authRoutes = require("./routes/authRoutes");
+const blogRoutes = require("./routes/blogRoutes");
 
 app.use("/api", articleRoutes);
 app.use("/api/videos", videoRoutes);
 app.use("/api/auth", authRoutes);
 app.use("/api/images", imageRoutes);
+app.use('/api', blogRoutes);
 
 // Connect db
 mongoose
