@@ -16,6 +16,8 @@ import Login from "./Component/Login/Login.jsx";
 import PageNotFound from "./Component/NotFound/PageNotFound.jsx";
 import ProtectedRoute from "./Component/ProtectedRoute/ProtectedRoute.jsx";
 import Gallery from "./Component/Gallery/Gallery.jsx";
+import BlogList from "./Component/Blog/BlogList.jsx";
+import BlogDetails from "./Component/Blog/BlogDetails.jsx";
 
 const AppContent = () => {
   const location = useLocation();
@@ -36,6 +38,8 @@ const AppContent = () => {
         <Route path="/contact" element={<ContactPage />} />
         <Route path="/gallery" element={<Gallery/>} />
         <Route path="/all-videos" element={<AllVideos />} />
+        <Route path="/blogs" element={<BlogList/>} />
+        <Route path="/blog/:slug" element={<BlogDetails />} />
         <Route path="/login" element={<Login />} />
         <Route path="*" element={<PageNotFound/>} />
 

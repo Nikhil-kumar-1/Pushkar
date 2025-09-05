@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
-import { FiMenu, FiX, FiHome, FiFileText, FiLogOut, FiSettings, FiUser, FiBarChart2, FiVideo, FiImage } from "react-icons/fi";
+import { FiMenu, FiX, FiHome, FiFileText, FiLogOut, FiSettings, FiUser, FiBarChart2, FiVideo, FiImage, FiBook } from "react-icons/fi";
 import ArticleForm from "./ArticleForm";
 import YoutubeForm from "./YoutubForm";
 import Image from "./Image";
+import BlogForm from "./BlogForm";
 import { useNavigate } from "react-router-dom";
 
 export default function AdminDashboard() {
@@ -59,13 +60,13 @@ export default function AdminDashboard() {
     navigate("/login"); // Redirect to the login page
   };
 
-  // Navigation items
+  // Navigation items - Replaced Analytics with Blog
   const navItems = [
     { id: "dashboard", label: "Dashboard", icon: <FiHome size={18} /> },
     { id: "articles", label: "Articles", icon: <FiFileText size={18} /> },
+    { id: "blog", label: "Blog", icon: <FiBook size={18} /> },
     { id: "youtube", label: "YouTube", icon: <FiVideo size={18} /> },
     { id: "image", label: "Images", icon: <FiImage size={18} /> },
-    { id: "analytics", label: "Analytics", icon: <FiBarChart2 size={18} /> },
     { id: "users", label: "Users", icon: <FiUser size={18} /> },
     { id: "settings", label: "Settings", icon: <FiSettings size={18} /> },
   ];
@@ -164,11 +165,11 @@ export default function AdminDashboard() {
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
                 {[
                   { title: "Total Articles", value: "128", change: "+12%", color: "bg-blue-500", icon: <FiFileText className="text-white" /> },
-                  { title: "Users", value: "542", change: "+8%", color: "bg-green-500", icon: <FiUser className="text-white" /> },
-                  { title: "Page Views", value: "24.8K", change: "+23%", color: "bg-purple-500", icon: <FiBarChart2 className="text-white" /> },
+                  { title: "Blog Posts", value: "56", change: "+18%", color: "bg-green-500", icon: <FiBook className="text-white" /> },
+                  { title: "Users", value: "542", change: "+8%", color: "bg-purple-500", icon: <FiUser className="text-white" /> },
+                  { title: "Page Views", value: "24.8K", change: "+23%", color: "bg-indigo-500", icon: <FiBarChart2 className="text-white" /> },
                   { title: "YouTube Videos", value: "42", change: "+5%", color: "bg-red-500", icon: <FiVideo className="text-white" /> },
-                  { title: "Images", value: "367", change: "+15%", color: "bg-yellow-500", icon: <FiImage className="text-white" /> },
-                  { title: "Comments", value: "896", change: "+3%", color: "bg-indigo-500", icon: <FiSettings className="text-white" /> }
+                  { title: "Images", value: "367", change: "+15%", color: "bg-yellow-500", icon: <FiImage className="text-white" /> }
                 ].map((stat, index) => (
                   <div 
                     key={index}
@@ -194,6 +195,7 @@ export default function AdminDashboard() {
                 <div className="space-y-4">
                   {[
                     { action: "Published new article", time: "2 hours ago", user: "Admin" },
+                    { action: "Added new blog post", time: "4 hours ago", user: "Content Team" },
                     { action: "Uploaded YouTube video", time: "5 hours ago", user: "Content Team" },
                     { action: "Updated user permissions", time: "Yesterday", user: "Admin" },
                     { action: "Added new images", time: "2 days ago", user: "Design Team" }
@@ -214,24 +216,10 @@ export default function AdminDashboard() {
           )}
 
           {activePage === "articles" && <ArticleForm />}
+          {activePage === "blog" && <BlogForm />}
           {activePage === "youtube" && <YoutubeForm />}
           {activePage === "image" && <Image />}
           
-          {activePage === "analytics" && (
-            <div className="animate-fadeIn">
-              <h2 className="text-2xl font-bold text-gray-800 mb-6">Analytics Overview</h2>
-              <div className="bg-white rounded-xl shadow-md p-6 h-96 flex flex-col items-center justify-center">
-                <div className="w-16 h-16 rounded-full bg-indigo-100 flex items-center justify-center mb-4">
-                  <FiBarChart2 className="text-indigo-600 text-2xl" />
-                </div>
-                <h3 className="text-lg font-semibold text-gray-700 mb-2">Analytics Coming Soon</h3>
-                <p className="text-gray-500 text-center max-w-md">
-                  Detailed analytics charts and performance metrics will be displayed here in the next update.
-                </p>
-              </div>
-            </div>
-          )}
-
           {activePage === "users" && (
             <div className="animate-fadeIn">
               <h2 className="text-2xl font-bold text-gray-800 mb-6">User Management</h2>
