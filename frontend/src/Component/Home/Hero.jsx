@@ -57,7 +57,7 @@ export default function Hero() {
   };
 
   return (
-    <section className="pt-28 pb-16 bg-gradient-to-b from-[#f9fdf9] to-[#e8f5e6] overflow-hidden">
+    <section className="pt-26 pb-16 bg-gradient-to-b from-[#f9fdf9] to-[#e8f5e6] overflow-hidden">
       <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-center px-6">
         {/* Left Side */}
         <motion.div
@@ -67,7 +67,7 @@ export default function Hero() {
         >
           <motion.h1
             variants={item}
-            className="text-4xl md:text-5xl font-bold text-[#1A1F1C] leading-tight mb-4"
+            className="text-xl md:text-5xl font-bold text-[#1A1F1C] leading-tight mb-4"
           >
             Dr. Pushkar Anand Singh
           </motion.h1>
@@ -86,7 +86,7 @@ export default function Hero() {
 
           <motion.p
             variants={item}
-            className="mt-4 text-gray-600 max-w-lg text-lg leading-relaxed"
+            className="mt-4 text-gray-600 max-w-lg text-md mr-20 leading-relaxed"
           >
             Renowned surgical specialist with expertise in minimally invasive
             procedures. Providing compassionate care and cutting-edge surgical
