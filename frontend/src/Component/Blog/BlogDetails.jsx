@@ -148,7 +148,7 @@ const BlogDetails = () => {
         className="relative bg-gradient-to-r from-teal-800 to-blue-900 text-white"
       >
         <div className="absolute inset-0 bg-black/40"></div>
-        <div className="relative max-w-8xl mx-auto px-4 py-24">
+        <div className="relative max-w-12xl mx-auto px-4 py-24">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -156,7 +156,7 @@ const BlogDetails = () => {
             className="text-center"
           >
             <h1 className="text-4xl md:text-5xl font-bold mb-6">{blog.title}</h1>
-            <p className="text-xl mb-8 max-w-2xl mx-auto">{blog.excerpt}</p>
+            <p className="text-xl mb-8 max-w-6xl mx-auto">{blog.excerpt}</p>
             <div className="flex flex-col sm:flex-row justify-center items-center gap-4">
               <div className="flex items-center">
                 <div className="w-10 h-10 rounded-full bg-teal-600 flex items-center justify-center text-white font-bold mr-3">
