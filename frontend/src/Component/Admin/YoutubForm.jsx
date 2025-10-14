@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { backendUrl } from "../../config/config";
 
 function VideoUpload() {
@@ -7,30 +7,68 @@ function VideoUpload() {
   const [message, setMessage] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
+  const [videos, setVideos] = useState([]);
 
+  // ✅ Detect platform and generate embed URL
+  const getEmbedUrl = (url) => {
+    if (url.includes("youtube.com/watch?v="))
+      return url.replace("watch?v=", "embed/");
+    if (url.includes("youtu.be"))
+      return url.replace("youtu.be/", "www.youtube.com/embed/");
+    if (url.includes("facebook.com"))
+      return `https://www.facebook.com/plugins/video.php?href=${encodeURIComponent(
+        url
+      )}&show_text=false&width=500`;
+    if (url.includes("instagram.com"))
+      return `https://www.instagram.com/p/${url.split("/p/")[1]?.split("/")[0]}/embed/`;
+    if (url.includes("twitter.com") || url.includes("x.com"))
+      return `https://twitframe.com/show?url=${encodeURIComponent(url)}`;
+    if (url.includes("vimeo.com"))
+      return url.replace("vimeo.com/", "player.vimeo.com/video/");
+    if (url.includes("dailymotion.com"))
+      return url.replace("dailymotion.com/video/", "dailymotion.com/embed/video/");
+    if (url.includes("tiktok.com"))
+      return `https://www.tiktok.com/embed/v2/${url.split("/video/")[1]?.split("?")[0]}`;
+    return null;
+  };
+
+  const videoRegex =
+    /^(https?:\/\/)?(www\.)?(youtube\.com|youtu\.be|facebook\.com|fb\.watch|instagram\.com|twitter\.com|x\.com|vimeo\.com|dailymotion\.com|tiktok\.com)\/.+$/;
+
+  // ✅ Fetch all videos from backend
+  const fetchVideos = async () => {
+    try {
+      const response = await fetch(`${backendUrl}/api/videos`);
+      const data = await response.json();
+      setVideos(data);
+    } catch (error) {
+      console.error("Error fetching videos:", error);
+    }
+  };
+
+  useEffect(() => {
+    fetchVideos();
+  }, []);
+
+  // ✅ Handle Add Video
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsLoading(true);
     setIsSuccess(false);
     setMessage("");
 
-    // Basic validation
     if (!title.trim()) {
       setMessage("❌ Please enter a video title");
       setIsLoading(false);
       return;
     }
-
     if (!url.trim()) {
-      setMessage("❌ Please enter a YouTube link");
+      setMessage("❌ Please enter a video URL");
       setIsLoading(false);
       return;
     }
-
-    // Validate YouTube URL format
-    const youtubeRegex = /^(https?:\/\/)?(www\.)?(youtube\.com|youtu\.?be)\/.+$/;
-    if (!youtubeRegex.test(url)) {
-      setMessage("❌ Please enter a valid YouTube URL");
+    if (!videoRegex.test(url)) {
+      setMessage("❌ Please enter a valid video URL");
       setIsLoading(false);
       return;
     }
@@ -48,95 +86,156 @@ function VideoUpload() {
         setIsSuccess(true);
         setUrl("");
         setTitle("");
+        fetchVideos();
       } else {
         setMessage(`❌ Error: ${data.message}`);
-        setIsSuccess(false);
       }
     } catch (error) {
       setMessage("⚠️ Something went wrong!");
-      setIsSuccess(false);
     } finally {
       setIsLoading(false);
     }
   };
 
+  // ✅ Handle Delete Video
+  const handleDelete = async (id) => {
+    if (!window.confirm("Are you sure you want to delete this video?")) return;
+
+    try {
+      const response = await fetch(`${backendUrl}/api/videos/${id}`, {
+        method: "DELETE",
+      });
+      const data = await response.json();
+      if (response.ok) {
+        setMessage("🗑️ Video deleted successfully!");
+        fetchVideos();
+      } else {
+        setMessage(`❌ Error: ${data.message}`);
+      }
+    } catch (error) {
+      setMessage("⚠️ Something went wrong while deleting!");
+    }
+  };
+
+  const embedUrl = getEmbedUrl(url);
+
   return (
-    <div className="flex justify-center items-center min-h-screen bg-gradient-to-br from-purple-600 to-blue-500 p-6">
-      <div className="bg-white rounded-2xl shadow-xl overflow-hidden w-full max-w-md animate-fade-in-up">
-        <div className="p-8 bg-gray-50 border-b border-gray-200 text-center">
-          <div className="w-16 h-16 text-red-600 mx-auto mb-4 animate-pulse">
-            <svg viewBox="0 0 24 24" className="w-full h-full">
-              <path fill="currentColor" d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z" />
-            </svg>
-          </div>
-          <h2 className="text-2xl font-bold text-gray-800 mb-2">Add YouTube Video</h2>
-          <p className="text-gray-600">Add a title and YouTube link to your collection</p>
+    <div className="min-h-screen bg-gradient-to-br from-purple-600 to-blue-500 p-6">
+      <div className="max-w-4xl mx-auto bg-white rounded-2xl shadow-xl overflow-hidden animate-fade-in-up">
+        <div className="p-8 border-b border-gray-200 text-center bg-gray-50">
+          <h2 className="text-2xl font-bold text-gray-800 mb-2">Add Video</h2>
+          <p className="text-gray-600">
+            Add a title and video link (YouTube, Facebook, etc.)
+          </p>
         </div>
 
         <form onSubmit={handleSubmit} className="p-8">
-          {/* Title Input Field */}
-          <div className="relative mb-4">
-            <label htmlFor="title" className="block text-sm font-medium text-gray-700 mb-1">
-              Video Title
-            </label>
-            <input
-              id="title"
-              type="text"
-              placeholder="Enter video title"
-              value={title}
-              onChange={(e) => setTitle(e.target.value)}
-              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all duration-200"
-              required
-            />
-            <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 h-0.5 bg-blue-500 w-0 transition-all duration-300 group-focus-within:w-full"></div>
+          <div className="grid md:grid-cols-2 gap-4">
+            <div>
+              <label className="block text-sm font-medium text-gray-700 mb-1">
+                Video Title
+              </label>
+              <input
+                type="text"
+                placeholder="Enter video title"
+                value={title}
+                onChange={(e) => setTitle(e.target.value)}
+                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none"
+              />
+            </div>
+
+            <div>
+              <label className="block text-sm font-medium text-gray-700 mb-1">
+                Video Link
+              </label>
+              <input
+                type="text"
+                placeholder="https://www.youtube.com/watch?v=..."
+                value={url}
+                onChange={(e) => setUrl(e.target.value)}
+                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none"
+              />
+            </div>
           </div>
 
-          {/* YouTube Link Input Field */}
-          <div className="relative mb-6">
-            <label htmlFor="link" className="block text-sm font-medium text-gray-700 mb-1">
-              YouTube Link
-            </label>
-            <input
-              id="link"
-              type="text"
-              placeholder="https://www.youtube.com/watch?v=..."
-              value={url}
-              onChange={(e) => setUrl(e.target.value)}
-              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all duration-200"
-              required
-            />
-            <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 h-0.5 bg-blue-500 w-0 transition-all duration-300 group-focus-within:w-full"></div>
-          </div>
-          
-          {/* Submit Button */}
+          {embedUrl && (
+            <div className="mt-6">
+              <iframe
+                src={embedUrl}
+                width="100%"
+                height="250"
+                className="rounded-lg border border-gray-200"
+                allow="autoplay; encrypted-media; picture-in-picture"
+                allowFullScreen
+                title="Video preview"
+              ></iframe>
+            </div>
+          )}
+
           <button
             type="submit"
             disabled={isLoading}
-            className={`w-full py-3 px-4 rounded-lg font-medium text-white transition-all duration-300 flex items-center justify-center
-              ${isLoading 
-                ? "bg-blue-400 cursor-not-allowed" 
-                : isSuccess 
-                  ? "bg-green-500" 
-                  : "bg-blue-500 hover:bg-blue-600 focus:ring-4 focus:ring-blue-200"}`}
+            className={`mt-6 w-full py-3 px-4 rounded-lg font-medium text-white transition-all duration-300 ${
+              isLoading
+                ? "bg-blue-400 cursor-not-allowed"
+                : isSuccess
+                ? "bg-green-500"
+                : "bg-blue-500 hover:bg-blue-600 focus:ring-4 focus:ring-blue-200"
+            }`}
           >
-            {isLoading ? (
-              <div className="w-5 h-5 border-t-2 border-r-2 border-white rounded-full animate-spin"></div>
-            ) : isSuccess ? (
-              <svg className="w-5 h-5 text-white" viewBox="0 0 24 24">
-                <path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z" />
-              </svg>
-            ) : (
-              "Add Video"
-            )}
+            {isLoading ? "Adding..." : "Add Video"}
           </button>
 
-          {/* Message Display */}
           {message && (
-            <div className={`mt-4 p-3 rounded-lg text-center transition-all duration-300 ${isSuccess ? "bg-green-100 text-green-700" : "bg-red-100 text-red-700"}`}>
+            <div
+              className={`mt-4 p-3 rounded-lg text-center ${
+                isSuccess
+                  ? "bg-green-100 text-green-700"
+                  : "bg-red-100 text-red-700"
+              }`}
+            >
               {message}
             </div>
           )}
         </form>
+
+        {/* ✅ Video List Section */}
+        <div className="p-8 border-t border-gray-200">
+          <h3 className="text-lg font-semibold mb-4 text-gray-800">
+            Uploaded Videos
+          </h3>
+
+          {videos.length === 0 ? (
+            <p className="text-gray-500 text-center">No videos uploaded yet.</p>
+          ) : (
+            <div className="grid md:grid-cols-2 gap-6">
+              {videos.map((video) => (
+                <div
+                  key={video._id}
+                  className="border rounded-lg overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300"
+                >
+                  <iframe
+                    src={getEmbedUrl(video.url)}
+                    width="100%"
+                    height="200"
+                    allow="autoplay; encrypted-media; picture-in-picture"
+                    allowFullScreen
+                    title={video.title}
+                  ></iframe>
+                  <div className="p-4 flex justify-between items-center">
+                    <h4 className="font-medium text-gray-800">{video.title}</h4>
+                    <button
+                      onClick={() => handleDelete(video._id)}
+                      className="bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600 transition"
+                    >
+                      Delete
+                    </button>
+                  </div>
+                </div>
+              ))}
+            </div>
+          )}
+        </div>
       </div>
 
       <style jsx>{`

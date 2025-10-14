@@ -11,12 +11,25 @@ const AllVideos = () => {
   const navigate = useNavigate();
 
   // Function to extract YouTube ID from various URL formats
-  const getYouTubeId = (url) => {
+  // ✅ Generate embed URL based on platform
+  const getEmbedUrl = (url) => {
     if (!url) return null;
-    
-    const regExp = /^.*((youtu.be\/)|(v\/)|(\/u\/\w\/)|(embed\/)|(watch\?))\??v?=?([^#&?]*).*/;
-    const match = url.match(regExp);
-    return (match && match[7].length === 11) ? match[7] : null;
+    if (url.includes("youtube.com/watch?v=")) return url.replace("watch?v=", "embed/");
+    if (url.includes("youtu.be")) return url.replace("youtu.be/", "www.youtube.com/embed/");
+    if (url.includes("facebook.com"))
+      return `https://www.facebook.com/plugins/video.php?href=${encodeURIComponent(
+        url
+      )}&show_text=false&width=500`;
+    if (url.includes("instagram.com"))
+      return `https://www.instagram.com/p/${url.split("/p/")[1]?.split("/")[0]}/embed/`;
+    if (url.includes("twitter.com") || url.includes("x.com"))
+      return `https://twitframe.com/show?url=${encodeURIComponent(url)}`;
+    if (url.includes("vimeo.com")) return url.replace("vimeo.com/", "player.vimeo.com/video/");
+    if (url.includes("dailymotion.com"))
+      return url.replace("dailymotion.com/video/", "dailymotion.com/embed/video/");
+    if (url.includes("tiktok.com"))
+      return `https://www.tiktok.com/embed/v2/${url.split("/video/")[1]?.split("?")[0]}`;
+    return null;
   };
 
   useEffect(() => {
@@ -24,9 +37,7 @@ const AllVideos = () => {
       try {
         setLoading(true);
         const res = await fetch(`${backendUrl}/api/videos`);
-        if (!res.ok) {
-          throw new Error(`HTTP error! status: ${res.status}`);
-        }
+        if (!res.ok) throw new Error(`HTTP error! status: ${res.status}`);
         const data = await res.json();
         setVideos(data);
         setError(null);
@@ -37,7 +48,6 @@ const AllVideos = () => {
         setLoading(false);
       }
     };
-
     fetchVideos();
   }, []);
 
@@ -164,11 +174,13 @@ const AllVideos = () => {
         ) : (
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
             {videos.map((video) => {
-              const videoId = getYouTubeId(video.url);
-              
-              if (!videoId) {
+              const embedUrl = getEmbedUrl(video.url);
+              if (!embedUrl) {
                 return (
-                  <div key={video._id} className="bg-white shadow-lg rounded-lg overflow-hidden p-4">
+                  <div
+                    key={video._id}
+                    className="bg-white shadow-lg rounded-lg overflow-hidden p-4"
+                  >
                     <div className="h-44 bg-gray-200 flex items-center justify-center">
                       <p className="text-gray-500">Invalid video URL</p>
                     </div>
@@ -182,9 +194,9 @@ const AllVideos = () => {
                 );
               }
               
-              const embedUrl = `https://www.youtube.com/embed/${videoId}`;
               
-              return (
+              
+             return (
                 <div
                   key={video._id}
                   className="bg-white shadow-lg rounded-lg overflow-hidden hover:shadow-xl transition-shadow duration-300"
@@ -208,6 +220,7 @@ const AllVideos = () => {
               );
             })}
           </div>
+       
         )}
       </section>
     </div>

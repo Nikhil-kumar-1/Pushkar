@@ -191,52 +191,66 @@ const EditorToolbar = ({ editor }) => {
   );
 };
 
-// Custom CSS for the editor content with proper spacing
+// Enhanced CSS for proper spacing and formatting
 const editorStyles = `
   .ProseMirror {
-    padding: 1rem;
-    min-height: 300px;
+    padding: 1.5rem;
+    min-height: 400px;
     outline: none;
-    white-space: pre-wrap;
-    word-wrap: break-word;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-size: 16px;
+    line-height: 1.7;
+    color: #374151;
   }
 
+  /* Proper spacing between blocks */
+  .ProseMirror > * + * {
+    margin-top: 1em;
+    margin-bottom: 0;
+  }
+
+  /* Headings with proper spacing */
   .ProseMirror h1 {
     font-size: 2.25rem;
-    font-weight: bold;
-    margin-top: 1.5rem;
-    margin-bottom: 1rem;
-    color: #1f2937;
+    font-weight: 700;
     line-height: 1.2;
+    color: #111827;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid #e5e7eb;
   }
 
   .ProseMirror h2 {
     font-size: 1.875rem;
-    font-weight: bold;
-    margin-top: 1.5rem;
-    margin-bottom: 1rem;
-    color: #1f2937;
+    font-weight: 600;
     line-height: 1.3;
+    color: #111827;
+    margin-top: 1.75rem;
+    margin-bottom: 0.875rem;
   }
 
   .ProseMirror h3 {
     font-size: 1.5rem;
-    font-weight: bold;
-    margin-top: 1.25rem;
-    margin-bottom: 0.75rem;
-    color: #1f2937;
+    font-weight: 600;
     line-height: 1.4;
+    color: #111827;
+    margin-top: 1.5rem;
+    margin-bottom: 0.75rem;
   }
 
+  /* Paragraphs with proper line height and spacing */
   .ProseMirror p {
-    margin-bottom: 1rem;
+    margin-bottom: 1.25em;
     line-height: 1.7;
-    white-space: pre-wrap;
+    text-align: justify;
   }
 
-  .ProseMirror ul, .ProseMirror ol {
+  /* Lists with proper indentation and spacing */
+  .ProseMirror ul, 
+  .ProseMirror ol {
+    margin: 1.25em 0;
     padding-left: 1.625rem;
-    margin-bottom: 1rem;
   }
 
   .ProseMirror ul {
@@ -248,33 +262,43 @@ const editorStyles = `
   }
 
   .ProseMirror li {
-    margin-bottom: 0.5rem;
+    margin: 0.5em 0;
     line-height: 1.6;
   }
 
-  .ProseMirror blockquote {
-    border-left: 4px solid #3b82f6;
-    padding-left: 1rem;
-    margin: 1.5rem 0;
-    font-style: italic;
-    color: #4b5563;
-    background-color: #f9fafb;
-    padding: 1rem;
-    border-radius: 0.375rem;
+  .ProseMirror li p {
+    margin: 0.5em 0;
   }
 
+  /* Blockquotes with proper styling */
+  .ProseMirror blockquote {
+    border-left: 4px solid #3b82f6;
+    padding: 1.25rem 1.5rem;
+    margin: 1.5rem 0;
+    background-color: #f8fafc;
+    border-radius: 0 0.5rem 0.5rem 0;
+    font-style: italic;
+    color: #4b5563;
+  }
+
+  .ProseMirror blockquote p {
+    margin: 0;
+  }
+
+  /* Code blocks */
   .ProseMirror code {
     background-color: #f3f4f6;
-    padding: 0.125rem 0.375rem;
+    padding: 0.2em 0.4em;
     border-radius: 0.25rem;
     font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
-    font-size: 0.875rem;
+    font-size: 0.875em;
+    color: #dc2626;
   }
 
   .ProseMirror pre {
     background-color: #1f2937;
-    color: #f3f4f6;
-    padding: 1rem;
+    color: #f9fafb;
+    padding: 1.25rem;
     border-radius: 0.5rem;
     overflow-x: auto;
     margin: 1.5rem 0;
@@ -289,33 +313,90 @@ const editorStyles = `
     font-size: inherit;
   }
 
+  /* Images */
   .ProseMirror img {
     max-width: 100%;
     height: auto;
-    border-radius: 0.5rem;
-    margin: 1.5rem 0;
+    border-radius: 0.75rem;
+    margin: 2rem auto;
+    display: block;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
   }
 
+  /* Links */
   .ProseMirror a {
-    color: #3b82f6;
+    color: #2563eb;
     text-decoration: underline;
+    text-underline-offset: 2px;
   }
 
+  .ProseMirror a:hover {
+    color: #1d4ed8;
+  }
+
+  /* Highlight */
   .ProseMirror mark {
     background-color: #fef08a;
-    padding: 0.125rem 0.25rem;
-    border-radius: 0.125rem;
+    padding: 0.1em 0.2em;
+    border-radius: 0.25rem;
   }
 
-  /* Ensure proper spacing between elements */
-  .ProseMirror > * + * {
-    margin-top: 0.75rem;
+  /* Text alignment */
+  .ProseMirror .text-left {
+    text-align: left;
   }
 
-  .ProseMirror br {
-    content: "";
-    display: block;
-    margin-top: 0.5rem;
+  .ProseMirror .text-center {
+    text-align: center;
+  }
+
+  .ProseMirror .text-right {
+    text-align: right;
+  }
+
+  /* Placeholder styling */
+  .ProseMirror .is-editor-empty:first-child::before {
+    content: "Start writing your medical article here...";
+    color: #9ca3af;
+    float: left;
+    height: 0;
+    pointer-events: none;
+  }
+
+  /* Focus state */
+  .ProseMirror:focus {
+    background-color: #fafafa;
+  }
+
+  /* Selection styling */
+  .ProseMirror *::selection {
+    background-color: #dbeafe;
+  }
+
+  /* Horizontal rule */
+  .ProseMirror hr {
+    border: none;
+    border-top: 2px solid #e5e7eb;
+    margin: 2rem 0;
+  }
+
+  /* Table styling */
+  .ProseMirror table {
+    border-collapse: collapse;
+    margin: 1rem 0;
+    width: 100%;
+  }
+
+  .ProseMirror table td,
+  .ProseMirror table th {
+    border: 1px solid #e5e7eb;
+    padding: 0.75rem;
+    text-align: left;
+  }
+
+  .ProseMirror table th {
+    background-color: #f9fafb;
+    font-weight: 600;
   }
 `;
 
@@ -338,15 +419,20 @@ const BlogForm = () => {
   const [blogs, setBlogs] = useState([]);
   const navigate = useNavigate();
 
-  // TipTap editor with additional extensions
+  // Enhanced TipTap editor configuration
   const editor = useEditor({
     extensions: [
       StarterKit.configure({
-        // Ensure proper paragraph handling
-        paragraph: {
-          HTMLAttributes: {
-            class: 'my-paragraph',
-          },
+        heading: {
+          levels: [1, 2, 3],
+        },
+        bulletList: {
+          keepMarks: true,
+          keepAttributes: false,
+        },
+        orderedList: {
+          keepMarks: true,
+          keepAttributes: false,
         },
       }),
       Underline,
@@ -357,39 +443,30 @@ const BlogForm = () => {
     content: formData.content,
     onUpdate: ({ editor }) => {
       const html = editor.getHTML();
-      setFormData({ ...formData, content: html });
+      setFormData(prev => ({ ...prev, content: html }));
     },
     editorProps: {
       attributes: {
-        class: 'prose prose-lg max-w-none focus:outline-none',
-        style: 'white-space: pre-wrap;', // Ensure spaces are preserved
+        class: 'prose prose-lg max-w-none focus:outline-none min-h-64',
+        style: 'min-height: 400px;',
       },
-      handleKeyDown: (view, event) => {
-        // Handle Enter key for proper spacing
-        if (event.key === 'Enter') {
-          // Preserve the current block type when pressing Enter
-          const { state } = view;
-          const { selection } = state;
-          const { $from } = selection;
-          
-          // If we're at the end of a heading, create a paragraph below
-          if ($from.parent.type.name === 'heading') {
-            view.dispatch(
-              state.tr.replaceSelectionWith(
-                state.schema.nodes.paragraph.create()
-              )
-            );
-            return true;
+      handleDOMEvents: {
+        // Handle paste events to maintain formatting
+        paste: (view, event) => {
+          const html = event.clipboardData?.getData('text/html');
+          if (html) {
+            // Let TipTap handle the paste with its built-in sanitization
+            return false;
           }
-        }
-        return false;
+        },
       },
     },
+    immediatelyRender: false,
   });
 
   // Update editor content when formData.content changes (for editing)
   useEffect(() => {
-    if (editor && formData.content) {
+    if (editor && formData.content && formData.content !== editor.getHTML()) {
       editor.commands.setContent(formData.content);
     }
   }, [formData.content, editor]);
@@ -417,19 +494,24 @@ const BlogForm = () => {
     setIsSubmitting(true);
 
     try {
+      // Ensure content is properly formatted
+      let finalContent = formData.content;
+      if (editor) {
+        finalContent = editor.getHTML();
+      }
+
       const payload = {
         ...formData,
+        content: finalContent,
         keywords: formData.keywords.split(',').map(k => k.trim()).filter(k => k),
         tags: formData.tags.split(',').map(t => t.trim()).filter(t => t),
         isPublished: true
       };
 
       if (editingId) {
-        // Update existing blog
         await axios.put(`${backendUrl}/api/blogs/${editingId}`, payload);
         setMessage({ text: 'Medical article updated successfully!', type: 'success' });
       } else {
-        // Create new blog
         await axios.post(`${backendUrl}/api/blogs`, payload);
         setMessage({ text: 'Medical article published successfully!', type: 'success' });
       }
@@ -449,11 +531,10 @@ const BlogForm = () => {
       
       setEditingId(null);
       if (editor) {
-        editor.commands.setContent(''); // Clear editor
+        editor.commands.clearContent(true); // Clear editor properly
       }
-      fetchBlogs(); // Refresh blog list
+      fetchBlogs();
 
-      // Clear message after 3 seconds
       setTimeout(() => {
         setMessage({ text: '', type: '' });
       }, 3000);
@@ -476,7 +557,6 @@ const BlogForm = () => {
       setBlogs(blogs.filter(blog => blog._id !== id));
       setMessage({ text: 'Medical article deleted successfully!', type: 'success' });
       
-      // Clear message after 3 seconds
       setTimeout(() => {
         setMessage({ text: '', type: '' });
       }, 3000);
@@ -515,23 +595,23 @@ const BlogForm = () => {
     });
     setEditingId(null);
     if (editor) {
-      editor.commands.setContent('');
+      editor.commands.clearContent(true);
     }
   };
 
   return (
-    <div className="max-w-5xl mx-auto py-8 px-4">
+    <div className="max-w-6xl mx-auto py-8 px-4">
       <style>{editorStyles}</style>
       
       <motion.div 
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
-        className="bg-white rounded-xl shadow-lg p-6 mb-12 border border-gray-200"
+        className="bg-white rounded-xl shadow-lg p-8 mb-12 border border-gray-200"
       >
-        <h2 className="text-3xl font-bold text-gray-800 mb-2 bg-gradient-to-r from-teal-600 to-blue-600 bg-clip-text ">
+        <h2 className="text-3xl font-bold text-gray-800 mb-2 bg-gradient-to-r from-teal-600 to-blue-600 bg-clip-text text-transparent">
           {editingId ? 'Edit Medical Article' : 'Create Medical Article'}
         </h2>
-        <p className="text-gray-600 mb-6">
+        <p className="text-gray-600 mb-8 text-lg">
           {editingId ? 'Update your medical article content' : 'Write a new medical article for your blog'}
         </p>
 
@@ -545,11 +625,11 @@ const BlogForm = () => {
           </motion.div>
         )}
 
-        <form onSubmit={handleSubmit} className="space-y-6">
+        <form onSubmit={handleSubmit} className="space-y-8">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {/* Title */}
             <div className="md:col-span-2">
-              <label className="block text-sm font-medium text-gray-700 mb-2">Article Title *</label>
+              <label className="block text-sm font-semibold text-gray-700 mb-3">Article Title *</label>
               <input
                 type="text"
                 name="title"
@@ -557,14 +637,14 @@ const BlogForm = () => {
                 onChange={handleChange}
                 required
                 autoComplete="off"
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-transparent"
+                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-transparent text-lg"
                 placeholder="Enter article title"
               />
             </div>
 
             {/* Author */}
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">Author *</label>
+              <label className="block text-sm font-semibold text-gray-700 mb-3">Author *</label>
               <input
                 type="text"
                 name="author"
@@ -579,9 +659,9 @@ const BlogForm = () => {
 
             {/* Featured Image */}
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">Featured Image URL *</label>
+              <label className="block text-sm font-semibold text-gray-700 mb-3">Featured Image URL *</label>
               <input
-                type="text"
+                type="url"
                 name="featuredImage"
                 value={formData.featuredImage}
                 onChange={handleChange}
@@ -594,7 +674,7 @@ const BlogForm = () => {
 
             {/* Meta Title */}
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">Meta Title *</label>
+              <label className="block text-sm font-semibold text-gray-700 mb-3">Meta Title *</label>
               <input
                 type="text"
                 name="metaTitle"
@@ -609,7 +689,7 @@ const BlogForm = () => {
 
             {/* Keywords */}
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">Keywords (comma separated)</label>
+              <label className="block text-sm font-semibold text-gray-700 mb-3">Keywords (comma separated)</label>
               <input
                 type="text"
                 name="keywords"
@@ -623,7 +703,7 @@ const BlogForm = () => {
 
             {/* Tags */}
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">Medical Topics (comma separated)</label>
+              <label className="block text-sm font-semibold text-gray-700 mb-3">Medical Topics (comma separated)</label>
               <input
                 type="text"
                 name="tags"
@@ -637,13 +717,13 @@ const BlogForm = () => {
 
             {/* Excerpt */}
             <div className="md:col-span-2">
-              <label className="block text-sm font-medium text-gray-700 mb-2">Excerpt *</label>
+              <label className="block text-sm font-semibold text-gray-700 mb-3">Excerpt *</label>
               <textarea
                 name="excerpt"
                 value={formData.excerpt}
                 onChange={handleChange}
                 required
-                rows="3"
+                rows="4"
                 autoComplete="off"
                 className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-transparent"
                 placeholder="Brief summary of the article"
@@ -652,13 +732,13 @@ const BlogForm = () => {
 
             {/* Meta Description */}
             <div className="md:col-span-2">
-              <label className="block text-sm font-medium text-gray-700 mb-2">Meta Description *</label>
+              <label className="block text-sm font-semibold text-gray-700 mb-3">Meta Description *</label>
               <textarea
                 name="metaDescription"
                 value={formData.metaDescription}
                 onChange={handleChange}
                 required
-                rows="3"
+                rows="4"
                 autoComplete="off"
                 className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-transparent"
                 placeholder="SEO meta description"
@@ -668,24 +748,24 @@ const BlogForm = () => {
 
           {/* Content Editor */}
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">Medical Content *</label>
-            <div className="border border-gray-300 rounded-lg mb-4 overflow-hidden shadow-sm">
+            <label className="block text-sm font-semibold text-gray-700 mb-3">Medical Content *</label>
+            <div className="border-2 border-gray-300 rounded-lg mb-4 overflow-hidden shadow-sm hover:border-teal-400 transition-colors">
               <EditorToolbar editor={editor} />
-              <div className="min-h-64 overflow-auto bg-white">
+              <div className="min-h-64 overflow-auto bg-white border-t-0">
                 {editor && <EditorContent editor={editor} />}
               </div>
             </div>
-            <p className="text-sm text-gray-500">
-              Use the toolbar to format your content. Headings, lists, colors, and other formatting will be preserved.
+            <p className="text-sm text-gray-500 mt-2">
+              Use the toolbar to format your content. Proper spacing, headings, and formatting will be preserved.
             </p>
           </div>
 
           {/* Buttons */}
-          <div className="flex gap-4 pt-4">
+          <div className="flex gap-4 pt-6 border-t border-gray-200">
             <button
               type="submit"
               disabled={isSubmitting}
-              className="flex-1 bg-gradient-to-r from-teal-600 to-blue-600 text-white py-3 px-6 rounded-lg hover:from-teal-700 hover:to-blue-700 focus:outline-none focus:ring-2 focus:ring-teal-500 disabled:opacity-50 transition-all duration-200 shadow-md"
+              className="flex-1 bg-gradient-to-r from-teal-600 to-blue-600 text-white py-4 px-8 rounded-lg hover:from-teal-700 hover:to-blue-700 focus:outline-none focus:ring-2 focus:ring-teal-500 disabled:opacity-50 transition-all duration-200 shadow-lg text-lg font-semibold"
             >
               {isSubmitting 
                 ? (editingId ? 'Updating...' : 'Publishing...') 
@@ -697,7 +777,7 @@ const BlogForm = () => {
               <button
                 type="button"
                 onClick={cancelEdit}
-                className="bg-gray-500 text-white py-3 px-6 rounded-lg hover:bg-gray-600 transition-colors duration-200 shadow-md"
+                className="bg-gray-500 text-white py-4 px-8 rounded-lg hover:bg-gray-600 transition-colors duration-200 shadow-lg text-lg font-semibold"
               >
                 Cancel Edit
               </button>
@@ -711,7 +791,7 @@ const BlogForm = () => {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.2 }}
-        className="max-w-5xl mx-auto"
+        className="max-w-6xl mx-auto"
       >
         <h2 className="text-2xl font-bold text-gray-800 mb-6 pb-2 border-b border-gray-200">Existing Medical Articles</h2>
         {blogs.length === 0 ? (
@@ -720,33 +800,37 @@ const BlogForm = () => {
             <p className="text-gray-400 mt-2">Create your first article using the form above.</p>
           </div>
         ) : (
-          <div className="grid grid-cols-1 gap-4">
+          <div className="grid grid-cols-1 gap-6">
             {blogs.map(blog => (
-              <div key={blog._id} className="p-5 border rounded-xl flex justify-between items-center bg-white shadow-sm hover:shadow-md transition-shadow">
+              <div key={blog._id} className="p-6 border-2 border-gray-200 rounded-xl flex justify-between items-center bg-white shadow-sm hover:shadow-lg transition-all duration-300 hover:border-teal-300">
                 <div className="flex-1">
-                  <h3 className="font-bold text-lg text-teal-800">{blog.title}</h3>
-                  <p className="text-gray-600 text-sm">By {blog.author}</p>
-                  <div className="flex flex-wrap gap-2 mt-2">
-                    {blog.tags && blog.tags.slice(0, 3).map((tag, index) => (
-                      <span key={index} className="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded-full">
+                  <h3 className="font-bold text-xl text-teal-800 mb-2">{blog.title}</h3>
+                  <p className="text-gray-600 mb-3">By {blog.author}</p>
+                  <div className="flex flex-wrap gap-2 mb-3">
+                    {blog.tags && blog.tags.slice(0, 4).map((tag, index) => (
+                      <span key={index} className="bg-blue-100 text-blue-800 text-sm px-3 py-1 rounded-full font-medium">
                         #{tag}
                       </span>
                     ))}
                   </div>
-                  <p className="text-gray-500 text-xs mt-2">
-                    Published: {new Date(blog.createdAt).toLocaleDateString()}
+                  <p className="text-gray-500 text-sm">
+                    Published: {new Date(blog.createdAt).toLocaleDateString('en-US', { 
+                      year: 'numeric', 
+                      month: 'long', 
+                      day: 'numeric' 
+                    })}
                   </p>
                 </div>
-                <div className="flex gap-2">
+                <div className="flex gap-3 ml-4">
                   <button
                     onClick={() => handleEdit(blog)}
-                    className="bg-teal-500 text-white px-4 py-2 rounded-lg hover:bg-teal-600 transition-colors shadow-sm"
+                    className="bg-teal-500 text-white px-5 py-2.5 rounded-lg hover:bg-teal-600 transition-colors shadow-md font-medium"
                   >
                     Edit
                   </button>
                   <button
                     onClick={() => handleDelete(blog._id)}
-                    className="bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-red-600 transition-colors shadow-sm"
+                    className="bg-red-500 text-white px-5 py-2.5 rounded-lg hover:bg-red-600 transition-colors shadow-md font-medium"
                   >
                     Delete
                   </button>

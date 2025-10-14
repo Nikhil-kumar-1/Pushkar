@@ -6,7 +6,7 @@ const addVideo = async (req, res) => {
     const { title, url } = req.body;
 
     if (!title || !url) {
-      return res.status(400).json({ message: "Title and YouTube link are required" });
+      return res.status(400).json({ message: "Title and video link are required" });
     }
 
     const newVideo = new Video({ title, url });
@@ -31,4 +31,22 @@ const getVideos = async (req, res) => {
   }
 };
 
-module.exports = { addVideo, getVideos };
+// ✅ Delete a video by ID
+const deleteVideo = async (req, res) => {
+  try {
+    const { id } = req.params;
+
+    const video = await Video.findById(id);
+    if (!video) {
+      return res.status(404).json({ message: "Video not found" });
+    }
+
+    await video.deleteOne();
+
+    res.json({ message: "Video deleted successfully" });
+  } catch (error) {
+    res.status(500).json({ message: "Server Error", error: error.message });
+  }
+};
+
+module.exports = { addVideo, getVideos, deleteVideo };
