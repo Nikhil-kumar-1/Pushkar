@@ -22,6 +22,12 @@ const AllVideos = () => {
       )}&show_text=false&width=500`;
     if (url.includes("instagram.com"))
       return `https://www.instagram.com/p/${url.split("/p/")[1]?.split("/")[0]}/embed/`;
+    
+if (url.includes("youtube.com/shorts/")) {
+    const videoId = url.split("shorts/")[1];
+    return `https://www.youtube.com/embed/${videoId}`;
+  }
+
     if (url.includes("twitter.com") || url.includes("x.com"))
       return `https://twitframe.com/show?url=${encodeURIComponent(url)}`;
     if (url.includes("vimeo.com")) return url.replace("vimeo.com/", "player.vimeo.com/video/");

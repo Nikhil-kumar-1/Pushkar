@@ -18,6 +18,10 @@ export default function VideoGrid() {
     if (url.includes("youtu.be")) return url.replace("youtu.be/", "www.youtube.com/embed/");
     if (url.includes("facebook.com"))
       return `https://www.facebook.com/plugins/video.php?href=${encodeURIComponent(url)}&show_text=false&width=500`;
+    if (url.includes("youtube.com/shorts/")) {
+    const videoId = url.split("shorts/")[1];
+    return `https://www.youtube.com/embed/${videoId}`;
+  }
     if (url.includes("instagram.com"))
       return `https://www.instagram.com/p/${url.split("/p/")[1]?.split("/")[0]}/embed/`;
     return null;
