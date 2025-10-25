@@ -11,29 +11,33 @@ function VideoUpload() {
 
   // ✅ Detect platform and generate embed URL
   const getEmbedUrl = (url) => {
-    if (url.includes("youtube.com/watch?v="))
-      return url.replace("watch?v=", "embed/");
-    if (url.includes("youtu.be"))
-      return url.replace("youtu.be/", "www.youtube.com/embed/");
-    if (url.includes("facebook.com"))
-      return `https://www.facebook.com/plugins/video.php?href=${encodeURIComponent(
-        url
-      )}&show_text=false&width=500`;
-    if (url.includes("instagram.com"))
-      return `https://www.instagram.com/p/${url.split("/p/")[1]?.split("/")[0]}/embed/`;
-    if (url.includes("twitter.com") || url.includes("x.com"))
-      return `https://twitframe.com/show?url=${encodeURIComponent(url)}`;
-    if (url.includes("vimeo.com"))
-      return url.replace("vimeo.com/", "player.vimeo.com/video/");
-    if (url.includes("dailymotion.com"))
-      return url.replace("dailymotion.com/video/", "dailymotion.com/embed/video/");
-    if (url.includes("tiktok.com"))
-      return `https://www.tiktok.com/embed/v2/${url.split("/video/")[1]?.split("?")[0]}`;
-    return null;
-  };
+  if (url.includes("youtube.com/watch?v="))
+    return url.replace("watch?v=", "embed/");
+  if (url.includes("youtu.be"))
+    return url.replace("youtu.be/", "youtube.com/embed/");
+  if (url.includes("youtube.com/shorts/"))
+    return url.replace("youtube.com/shorts/", "youtube.com/embed/");
+  if (url.includes("facebook.com"))
+    return `https://www.facebook.com/plugins/video.php?href=${encodeURIComponent(url)}&show_text=false&width=500`;
+  if (url.includes("instagram.com"))
+    return `https://www.instagram.com/p/${url.split("/p/")[1]?.split("/")[0]}/embed/`;
+  if (url.includes("twitter.com") || url.includes("x.com"))
+    return `https://twitframe.com/show?url=${encodeURIComponent(url)}`;
+  if (url.includes("vimeo.com"))
+    return url.replace("vimeo.com/", "player.vimeo.com/video/");
+  if (url.includes("dailymotion.com"))
+    return url.replace("dailymotion.com/video/", "dailymotion.com/embed/video/");
+  if (url.includes("tiktok.com"))
+    return `https://www.tiktok.com/embed/v2/${url.split("/video/")[1]?.split("?")[0]}`;
+  return null;
+};
 
-  const videoRegex =
-    /^(https?:\/\/)?(www\.)?(youtube\.com|youtu\.be|facebook\.com|fb\.watch|instagram\.com|twitter\.com|x\.com|vimeo\.com|dailymotion\.com|tiktok\.com)\/.+$/;
+
+
+ const videoRegex =
+  /^(https?:\/\/)?(www\.)?(youtube\.com\/(watch\?v=|shorts\/)[\w\-]+|youtu\.be\/[\w\-]+|facebook\.com|fb\.watch|instagram\.com|twitter\.com|x\.com|vimeo\.com|dailymotion\.com|tiktok\.com)/;
+
+
 
   // ✅ Fetch all videos from backend
   const fetchVideos = async () => {

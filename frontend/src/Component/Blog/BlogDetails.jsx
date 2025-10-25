@@ -199,7 +199,12 @@ const BlogDetails = () => {
             <div className="prose max-w-none">
               {/* Render the actual blog content with HTML */}
               {blog.content ? (
-                <div dangerouslySetInnerHTML={renderHTML(blog.content)} />
+                <div
+  dangerouslySetInnerHTML={{ __html: blog.content.replace(/\n/g, "<br />") }}
+
+  style={{ whiteSpace: "pre-line", lineHeight: "1.8", fontSize: "1.05rem", color: "#374151" }}
+/>
+
               ) : (
                 <>
                   <h2 className="text-2xl font-bold text-gray-800 mb-6">Introduction</h2>

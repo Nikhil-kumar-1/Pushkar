@@ -25,6 +25,7 @@ const EditorToolbar = ({ editor }) => {
     <div className="flex flex-wrap gap-1 p-3 border-b border-gray-300 bg-gray-50 rounded-t-md">
       {/* Text formatting */}
       <button
+        type="button" // ✅ Add type="button" to prevent form submission
         onClick={() => editor.chain().focus().toggleBold().run()}
         className={`p-2 rounded ${editor.isActive('bold') ? 'bg-blue-100 text-blue-600' : 'hover:bg-gray-100'}`}
         title="Bold"
@@ -32,6 +33,7 @@ const EditorToolbar = ({ editor }) => {
         <strong>B</strong>
       </button>
       <button
+        type="button"
         onClick={() => editor.chain().focus().toggleItalic().run()}
         className={`p-2 rounded ${editor.isActive('italic') ? 'bg-blue-100 text-blue-600' : 'hover:bg-gray-100'}`}
         title="Italic"
@@ -39,6 +41,7 @@ const EditorToolbar = ({ editor }) => {
         <em>I</em>
       </button>
       <button
+        type="button"
         onClick={() => editor.chain().focus().toggleUnderline().run()}
         className={`p-2 rounded ${editor.isActive('underline') ? 'bg-blue-100 text-blue-600' : 'hover:bg-gray-100'}`}
         title="Underline"
@@ -50,6 +53,7 @@ const EditorToolbar = ({ editor }) => {
       
       {/* Headings */}
       <button
+        type="button"
         onClick={() => editor.chain().focus().setParagraph().run()}
         className={`p-2 rounded ${editor.isActive('paragraph') ? 'bg-blue-100 text-blue-600' : 'hover:bg-gray-100'}`}
         title="Paragraph"
@@ -57,6 +61,7 @@ const EditorToolbar = ({ editor }) => {
         ¶
       </button>
       <button
+        type="button"
         onClick={() => editor.chain().focus().toggleHeading({ level: 1 }).run()}
         className={`p-2 rounded ${editor.isActive('heading', { level: 1 }) ? 'bg-blue-100 text-blue-600 font-bold' : 'hover:bg-gray-100'}`}
         title="Heading 1"
@@ -64,6 +69,7 @@ const EditorToolbar = ({ editor }) => {
         H1
       </button>
       <button
+        type="button"
         onClick={() => editor.chain().focus().toggleHeading({ level: 2 }).run()}
         className={`p-2 rounded ${editor.isActive('heading', { level: 2 }) ? 'bg-blue-100 text-blue-600 font-bold' : 'hover:bg-gray-100'}`}
         title="Heading 2"
@@ -71,6 +77,7 @@ const EditorToolbar = ({ editor }) => {
         H2
       </button>
       <button
+        type="button"
         onClick={() => editor.chain().focus().toggleHeading({ level: 3 }).run()}
         className={`p-2 rounded ${editor.isActive('heading', { level: 3 }) ? 'bg-blue-100 text-blue-600 font-bold' : 'hover:bg-gray-100'}`}
         title="Heading 3"
@@ -82,6 +89,7 @@ const EditorToolbar = ({ editor }) => {
       
       {/* Lists */}
       <button
+        type="button"
         onClick={() => editor.chain().focus().toggleBulletList().run()}
         className={`p-2 rounded ${editor.isActive('bulletList') ? 'bg-blue-100 text-blue-600' : 'hover:bg-gray-100'}`}
         title="Bullet List"
@@ -89,6 +97,7 @@ const EditorToolbar = ({ editor }) => {
         <span>• List</span>
       </button>
       <button
+        type="button"
         onClick={() => editor.chain().focus().toggleOrderedList().run()}
         className={`p-2 rounded ${editor.isActive('orderedList') ? 'bg-blue-100 text-blue-600' : 'hover:bg-gray-100'}`}
         title="Numbered List"
@@ -100,6 +109,7 @@ const EditorToolbar = ({ editor }) => {
       
       {/* Text Alignment */}
       <button
+        type="button"
         onClick={() => editor.chain().focus().setTextAlign('left').run()}
         className={`p-2 rounded ${editor.isActive({ textAlign: 'left' }) ? 'bg-blue-100 text-blue-600' : 'hover:bg-gray-100'}`}
         title="Align Left"
@@ -107,6 +117,7 @@ const EditorToolbar = ({ editor }) => {
         ≡
       </button>
       <button
+        type="button"
         onClick={() => editor.chain().focus().setTextAlign('center').run()}
         className={`p-2 rounded ${editor.isActive({ textAlign: 'center' }) ? 'bg-blue-100 text-blue-600' : 'hover:bg-gray-100'}`}
         title="Align Center"
@@ -114,6 +125,7 @@ const EditorToolbar = ({ editor }) => {
         ≡
       </button>
       <button
+        type="button"
         onClick={() => editor.chain().focus().setTextAlign('right').run()}
         className={`p-2 rounded ${editor.isActive({ textAlign: 'right' }) ? 'bg-blue-100 text-blue-600' : 'hover:bg-gray-100'}`}
         title="Align Right"
@@ -125,13 +137,14 @@ const EditorToolbar = ({ editor }) => {
       
       {/* Text Colors */}
       <div className="relative group">
-        <button className="p-2 rounded hover:bg-gray-100" title="Text Color">
+        <button type="button" className="p-2 rounded hover:bg-gray-100" title="Text Color">
           A
         </button>
         <div className="absolute hidden group-hover:block z-10 bg-white shadow-lg rounded-md p-2 mt-1">
           <div className="grid grid-cols-4 gap-1">
             {['#000000', '#dc2626', '#2563eb', '#059669', '#ea580c', '#7c3aed', '#db2777'].map(color => (
               <button
+                type="button"
                 key={color}
                 onClick={() => addColor(color)}
                 className="w-6 h-6 rounded"
@@ -145,13 +158,14 @@ const EditorToolbar = ({ editor }) => {
       
       {/* Highlight Colors */}
       <div className="relative group">
-        <button className="p-2 rounded hover:bg-gray-100" title="Highlight">
+        <button type="button" className="p-2 rounded hover:bg-gray-100" title="Highlight">
           <span className="bg-yellow-300 px-1">H</span>
         </button>
         <div className="absolute hidden group-hover:block z-10 bg-white shadow-lg rounded-md p-2 mt-1">
           <div className="grid grid-cols-4 gap-1">
             {['#fef08a', '#bbf7d0', '#bfdbfe', '#fecaca', '#ddd6fe', '#fbcfe8', '#fed7aa'].map(color => (
               <button
+                type="button"
                 key={color}
                 onClick={() => highlightText(color)}
                 className="w-6 h-6 rounded"
@@ -167,6 +181,7 @@ const EditorToolbar = ({ editor }) => {
       
       {/* Other controls */}
       <button
+        type="button"
         onClick={() => editor.chain().focus().setHardBreak().run()}
         className="p-2 rounded hover:bg-gray-100"
         title="Line Break"
@@ -174,6 +189,7 @@ const EditorToolbar = ({ editor }) => {
         ↵
       </button>
       <button
+        type="button"
         onClick={() => editor.chain().focus().undo().run()}
         className="p-2 rounded hover:bg-gray-100"
         title="Undo"
@@ -181,6 +197,7 @@ const EditorToolbar = ({ editor }) => {
         ↶
       </button>
       <button
+        type="button"
         onClick={() => editor.chain().focus().redo().run()}
         className="p-2 rounded hover:bg-gray-100"
         title="Redo"
@@ -201,12 +218,24 @@ const editorStyles = `
     font-size: 16px;
     line-height: 1.7;
     color: #374151;
+    white-space: pre-wrap !important; /* ✅ Changed to pre-wrap for better spacing */
+    word-spacing: normal !important;
+    letter-spacing: normal !important;
+    word-break: break-word !important;
   }
 
-  /* Proper spacing between blocks */
+  /* Reset all margins and use proper spacing */
+  .ProseMirror > * {
+    margin: 0;
+    white-space: pre-wrap !important; /* ✅ Important fix for spacing */
+    word-spacing: normal !important;
+    letter-spacing: normal !important;
+  }
+
+  /* Proper spacing between ALL blocks */
   .ProseMirror > * + * {
-    margin-top: 1em;
-    margin-bottom: 0;
+    margin-top: 1em !important;
+    margin-bottom: 0 !important;
   }
 
   /* Headings with proper spacing */
@@ -215,10 +244,11 @@ const editorStyles = `
     font-weight: 700;
     line-height: 1.2;
     color: #111827;
-    margin-top: 2rem;
-    margin-bottom: 1rem;
+    margin-top: 2rem !important;
+    margin-bottom: 1rem !important;
     padding-bottom: 0.5rem;
     border-bottom: 2px solid #e5e7eb;
+    white-space: pre-wrap !important;
   }
 
   .ProseMirror h2 {
@@ -226,8 +256,9 @@ const editorStyles = `
     font-weight: 600;
     line-height: 1.3;
     color: #111827;
-    margin-top: 1.75rem;
-    margin-bottom: 0.875rem;
+    margin-top: 1.75rem !important;
+    margin-bottom: 0.875rem !important;
+    white-space: pre-wrap !important;
   }
 
   .ProseMirror h3 {
@@ -235,22 +266,41 @@ const editorStyles = `
     font-weight: 600;
     line-height: 1.4;
     color: #111827;
-    margin-top: 1.5rem;
-    margin-bottom: 0.75rem;
+    margin-top: 1.5rem !important;
+    margin-bottom: 0.75rem !important;
+    white-space: pre-wrap !important;
   }
 
   /* Paragraphs with proper line height and spacing */
   .ProseMirror p {
-    margin-bottom: 1.25em;
-    line-height: 1.7;
-    text-align: justify;
+    margin-bottom: 1.25em !important;
+    line-height: 1.7 !important;
+    text-align: left;
+    word-spacing: normal !important;
+    letter-spacing: normal !important;
+    white-space: pre-wrap !important; /* ✅ Key fix for paragraph spacing */
+    font-size: 16px;
+    word-break: break-word !important;
+  }
+
+  /* Ensure proper text rendering for all text elements */
+  .ProseMirror p, 
+  .ProseMirror li, 
+  .ProseMirror span,
+  .ProseMirror div {
+    word-spacing: normal !important;
+    letter-spacing: normal !important;
+    white-space: pre-wrap !important; /* ✅ Important for all text elements */
+    line-height: 1.7 !important;
+    word-break: break-word !important;
   }
 
   /* Lists with proper indentation and spacing */
   .ProseMirror ul, 
   .ProseMirror ol {
-    margin: 1.25em 0;
+    margin: 1.25em 0 !important;
     padding-left: 1.625rem;
+    white-space: normal;
   }
 
   .ProseMirror ul {
@@ -262,27 +312,34 @@ const editorStyles = `
   }
 
   .ProseMirror li {
-    margin: 0.5em 0;
+    margin: 0.5em 0 !important;
     line-height: 1.6;
+    word-spacing: normal;
+    letter-spacing: normal;
+    white-space: pre-wrap !important;
+    word-break: break-word !important;
   }
 
   .ProseMirror li p {
-    margin: 0.5em 0;
+    margin: 0.5em 0 !important;
   }
 
-  /* Blockquotes with proper styling */
+  /* Blockquotes */
   .ProseMirror blockquote {
     border-left: 4px solid #3b82f6;
     padding: 1.25rem 1.5rem;
-    margin: 1.5rem 0;
+    margin: 1.5rem 0 !important;
     background-color: #f8fafc;
     border-radius: 0 0.5rem 0.5rem 0;
     font-style: italic;
     color: #4b5563;
+    white-space: pre-wrap !important;
   }
 
   .ProseMirror blockquote p {
-    margin: 0;
+    margin: 0 !important;
+    line-height: 1.6 !important;
+    white-space: pre-wrap !important;
   }
 
   /* Code blocks */
@@ -293,6 +350,8 @@ const editorStyles = `
     font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
     font-size: 0.875em;
     color: #dc2626;
+    white-space: pre-wrap !important;
+    word-break: break-word !important;
   }
 
   .ProseMirror pre {
@@ -301,8 +360,10 @@ const editorStyles = `
     padding: 1.25rem;
     border-radius: 0.5rem;
     overflow-x: auto;
-    margin: 1.5rem 0;
+    margin: 1.5rem 0 !important;
     line-height: 1.5;
+    white-space: pre-wrap !important;
+    word-break: break-word !important;
   }
 
   .ProseMirror pre code {
@@ -311,6 +372,7 @@ const editorStyles = `
     border-radius: 0;
     color: inherit;
     font-size: inherit;
+    white-space: pre-wrap !important;
   }
 
   /* Images */
@@ -318,7 +380,7 @@ const editorStyles = `
     max-width: 100%;
     height: auto;
     border-radius: 0.75rem;
-    margin: 2rem auto;
+    margin: 2rem auto !important;
     display: block;
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
   }
@@ -328,6 +390,8 @@ const editorStyles = `
     color: #2563eb;
     text-decoration: underline;
     text-underline-offset: 2px;
+    word-spacing: normal;
+    white-space: pre-wrap !important;
   }
 
   .ProseMirror a:hover {
@@ -339,6 +403,8 @@ const editorStyles = `
     background-color: #fef08a;
     padding: 0.1em 0.2em;
     border-radius: 0.25rem;
+    word-spacing: normal;
+    white-space: pre-wrap !important;
   }
 
   /* Text alignment */
@@ -361,6 +427,7 @@ const editorStyles = `
     float: left;
     height: 0;
     pointer-events: none;
+    white-space: normal;
   }
 
   /* Focus state */
@@ -377,14 +444,15 @@ const editorStyles = `
   .ProseMirror hr {
     border: none;
     border-top: 2px solid #e5e7eb;
-    margin: 2rem 0;
+    margin: 2rem 0 !important;
   }
 
   /* Table styling */
   .ProseMirror table {
     border-collapse: collapse;
-    margin: 1rem 0;
+    margin: 1rem 0 !important;
     width: 100%;
+    white-space: normal;
   }
 
   .ProseMirror table td,
@@ -392,11 +460,37 @@ const editorStyles = `
     border: 1px solid #e5e7eb;
     padding: 0.75rem;
     text-align: left;
+    word-spacing: normal;
+    white-space: pre-wrap !important;
   }
 
   .ProseMirror table th {
     background-color: #f9fafb;
     font-weight: 600;
+  }
+
+  /* Specific paragraph styling for better spacing */
+  .editor-paragraph {
+    margin-bottom: 1.25em !important;
+    line-height: 1.7 !important;
+    word-spacing: normal !important;
+    letter-spacing: normal !important;
+    white-space: pre-wrap !important; /* ✅ Important fix */
+    word-break: break-word !important;
+  }
+
+  /* Force normal spacing for all text */
+  .ProseMirror * {
+    white-space: pre-wrap !important; /* ✅ Changed to pre-wrap */
+    word-spacing: normal !important;
+    letter-spacing: normal !important;
+    word-break: break-word !important;
+  }
+
+  /* Fix for empty paragraphs and spacing */
+  .ProseMirror p:empty::before {
+    content: "\\00a0"; /* Non-breaking space */
+    color: transparent;
   }
 `;
 
@@ -419,7 +513,7 @@ const BlogForm = () => {
   const [blogs, setBlogs] = useState([]);
   const navigate = useNavigate();
 
-  // Enhanced TipTap editor configuration
+  // Enhanced TipTap editor configuration with better paste handling
   const editor = useEditor({
     extensions: [
       StarterKit.configure({
@@ -434,10 +528,16 @@ const BlogForm = () => {
           keepMarks: true,
           keepAttributes: false,
         },
+        paragraph: {
+          HTMLAttributes: {
+            class: 'editor-paragraph',
+          },
+        },
       }),
       Underline,
       TextAlign.configure({
         types: ['heading', 'paragraph'],
+        alignments: ['left', 'center', 'right'],
       }),
     ],
     content: formData.content,
@@ -449,16 +549,24 @@ const BlogForm = () => {
       attributes: {
         class: 'prose prose-lg max-w-none focus:outline-none min-h-64',
         style: 'min-height: 400px;',
+        spellcheck: 'false',
       },
       handleDOMEvents: {
-        // Handle paste events to maintain formatting
+        // ✅ Remove keydown handler that was causing issues
         paste: (view, event) => {
-          const html = event.clipboardData?.getData('text/html');
-          if (html) {
-            // Let TipTap handle the paste with its built-in sanitization
-            return false;
-          }
+          // Let TipTap handle paste naturally
+          return false;
         },
+      },
+      transformPastedHTML(html) {
+        // ✅ Better HTML cleaning that preserves spaces
+        return html
+          .replace(/<p><br><\/p>/gi, '') // Remove empty paragraphs
+          .replace(/&nbsp;/gi, ' ') // Convert non-breaking spaces to normal spaces
+          .replace(/\s+/g, ' ') // Normalize multiple spaces
+          .replace(/style="[^"]*"/gi, '') // Remove inline styles
+          .replace(/class="[^"]*"/gi, '') // Remove classes
+          .trim();
       },
     },
     immediatelyRender: false,
@@ -498,6 +606,14 @@ const BlogForm = () => {
       let finalContent = formData.content;
       if (editor) {
         finalContent = editor.getHTML();
+        
+        // Clean up the HTML content but preserve meaningful spaces
+        finalContent = finalContent
+          .replace(/style="[^"]*"/gi, '')
+          .replace(/class="[^"]*"/gi, '')
+          .replace(/&nbsp;/g, ' ') // Keep single spaces
+          .replace(/\s+/g, ' ') // Normalize multiple spaces to single space
+          .trim();
       }
 
       const payload = {
@@ -531,7 +647,7 @@ const BlogForm = () => {
       
       setEditingId(null);
       if (editor) {
-        editor.commands.clearContent(true); // Clear editor properly
+        editor.commands.clearContent(true);
       }
       fetchBlogs();
 
@@ -775,7 +891,7 @@ const BlogForm = () => {
             
             {editingId && (
               <button
-                type="button"
+                type="button" // ✅ Important: type="button" to prevent form submission
                 onClick={cancelEdit}
                 className="bg-gray-500 text-white py-4 px-8 rounded-lg hover:bg-gray-600 transition-colors duration-200 shadow-lg text-lg font-semibold"
               >
@@ -823,12 +939,14 @@ const BlogForm = () => {
                 </div>
                 <div className="flex gap-3 ml-4">
                   <button
+                    type="button" // ✅ Important: type="button"
                     onClick={() => handleEdit(blog)}
                     className="bg-teal-500 text-white px-5 py-2.5 rounded-lg hover:bg-teal-600 transition-colors shadow-md font-medium"
                   >
                     Edit
                   </button>
                   <button
+                    type="button" // ✅ Important: type="button"
                     onClick={() => handleDelete(blog._id)}
                     className="bg-red-500 text-white px-5 py-2.5 rounded-lg hover:bg-red-600 transition-colors shadow-md font-medium"
                   >
