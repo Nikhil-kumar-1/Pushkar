@@ -360,12 +360,13 @@ const BlogDetails = () => {
       <div className=" bg-gray-50">
         <div className="w-full mx-auto py-8 px-4">
           <div className="flex justify-center items-center h-64">
-            <motion.div 
-              animate={{ rotate: 360 }}
-              transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
-              className="rounded-full h-12 w-full border-t-2 border-b-2 border-teal-500"
-            ></motion.div>
-          </div>
+  <motion.div 
+    animate={{ rotate: 360 }}
+    transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
+    className="rounded-full h-12 w-12 border-t-4 border-b-4 border-teal-500"
+  ></motion.div>
+</div>
+
         </div>
       </div>
     );
